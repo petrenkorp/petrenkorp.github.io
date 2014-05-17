@@ -104,7 +104,6 @@ var news = new Array(
 	"Mayor to scrap all taxes & services, convert city to colossal Costco",
 	"Study finds ecological catastrophe unavoidable due to cars being cool",
 	"Construction begins on combination casino/airport/ferris wheel",
-	"Streetcar wanted for questioning in re-opened Sammy Yatim inquest",
 	"Scarborough subway pays for self w/ treasure found during excavation",
 	"Mayor wins Pulitzer prize for 'jabronis' remark at council",
 	"Ryan Gosling to get 'handsome surgery' to play Mayor in new film",
@@ -114,7 +113,7 @@ var news = new Array(
 	"Study finds mayor's job impossible to do before noon anyways",
 	"Football team coached by mayor wins Big Game thanks to canine QB",
 	"Council: there's no law that says a mayor can't break laws",
-	"Mayor issues statement: 'Frankie, don't let that sauce stick'",
+	"Mayor issues statement: 'Michael, keep an eye on the sauce'",
 	"Massive media maggot hive discovered under Nathan Phillips Square",
 	"New course offered at Don Bosco CHS to teach loyalty",
 	"Mayor's LazerQuest nickname, 'CrackShot420,' retired nationwide",
@@ -130,7 +129,8 @@ var news = new Array(
 	"As per mayor's transit plan, Scarborough to get 4 Subway franchises",
 	"Four Etobicoke drug dealers killed; streetcar tracks found at scene",
 	"Mayor donates funds for 'Calvin Peeing' statues along St Clair tracks",
-	"Mayor wins freestyle competition, credits 'here to stay / USA' rhyme"
+	"Mayor wins freestyle competition, credits 'here to stay / USA' rhyme",
+	"Groundwork laid on Mayor's latest treehouse"
 );
 
 var TILE = {
@@ -742,33 +742,7 @@ var displayHeadline = function() {
 
 
 var playMayorsQuest = function(div) {
-	/*
-	$(div).css("width", "600px").css("background", "gray").css("margin", "0px");
-	$(div).append(banner);
-	$(div).append("<br />");
-	$(div).append("<div class='mayorsText' id='levelDiv'>LEVEL <span id='gameLevel' align='center'>0</span></div>");
-	$("#levelDiv").css("text-align", "center").css("margin", "4px auto");
-	$(div).append("<canvas id='gameMap' width='" + gameWindowWidth + "' height='" + gameWindowWidth + "'></canvas>");
-	$(div).append("<br />");
-	$(div).append("<div class='mayorsText' id='crackDiv'>CRACK: <span id='crackObtained'>00</span>/<span id='crackNeeded'>00</span></div>");
-	$(div).append("<div class='mayorsText' id='soundButton' float='right' align='right'>SOUND: ON</div>");
-	$(div).append("<div class='mayorsText' id='newsTicker'>NewsBlast24: All the news. All of it.</div>");
-	$("#newsTicker").css("clear", "both").css("text-align", "center").css("margin", "4px auto").css("border-style", "dotted").css("border-width", "2px").css("min-height", "2em").css("padding", "2px");
-	$(div).append("<audio src='crack.mp3' id='sfx' />");
-	$(div).append("<audio src='whitelines.mp3' id='music' autoplay loop />");
-	*/
-	
-	$(div).css("width", "600px").css("background", "gray").css("margin", "0px");
-	$(div).append(banner);
-	$(div).append("<br />");
-	$(div).append("<div class='mayorsText' id='crackDiv'>CRACK: <span id='crackObtained'>00</span>/<span id='crackNeeded'>00</span></div>");
-	$(div).append("<div class='mayorsText' id='levelDiv'>LEVEL <span id='gameLevel'>0</span></div>");
-	$(div).append("<div class='mayorsText' id='soundButton'>SOUND: ON</div>");
-	$(div).append("<canvas id='gameMap' width='" + gameWindowWidth + "' height='" + gameWindowWidth + "'></canvas>");
-	$(div).append("<div class='mayorsText' id='newsTicker'>NewsBlast24: All the news. All of it.</div>");
-	$(div).append("<audio src='crack.mp3' id='sfx' />");
-	$(div).append("<audio src='whitelines.mp3' id='music' autoplay loop />");
-	
+	$(div).prepend(banner);
 	levelLoad(levelBeingPlayed);
 	$(document).keydown(function(event){ keyInput(event.keyCode); return false; });
 	$("#soundButton").click(toggleSound);
