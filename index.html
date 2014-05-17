@@ -1,7 +1,61 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>MayorsQuest</h1>
-<p>Here goes nothing.</p>
-</body>
-</html>
+<HTML>
+<head>
+<style type='text/css'>
+	@font-face { 
+		font-family: 'mayorsFont'; 
+		src: url('PressStart2P.ttf') format('truetype'); 
+	}
+	.mayorsText {
+		font-family: mayorsFont, "Courier New";
+		font-size: 14px;
+	}
+	#levelDiv {
+		width: 38%;
+		display: inline-block;
+		padding-top: 2px;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+	#crackDiv {
+		width: 30%;
+		display: inline;
+		float: left;
+		text-align: left;
+		padding-top: 2px;
+		padding-left: 2px;
+	}
+	#soundButton {
+		width: 30%;
+		display: inline;
+		float: right;
+		text-align: right;
+		padding-top: 2px;
+		padding-right: 2px;
+	}
+	#newsTicker {
+		clear: both;
+		text-align: center;
+		margin: 0px auto;
+		border-style: dotted;
+		border-width: 2px;
+		min-height: 2em;
+		padding: 2px;
+	}
+</style>
+<script src="jquery-1.11.1.js"></script>
+<script src="levelmap.js"></script>
+<script src="mq.js"></script>
+</head>
+
+<BODY>
+<div id="mayorsQuest">
+</div>
+<div id="controls">
+Arrow keys move, R restarts, S toggles sound. <br />
+Avoid cameraphones. Crush cyclists with streetcars for crack. Cut taxes.
+</div>
+
+</BODY>
+   
+</HTML>
