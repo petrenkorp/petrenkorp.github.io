@@ -32,61 +32,61 @@ var boomList = [];
 var sound = true;
 
 var picEmpty = new Image(tileSize, tileSize);
-picEmpty.src = "empty.png";
+picEmpty.src = "mayorsQuestRes/empty.png";
 var picDirt = new Image(tileSize, tileSize);
-picDirt.src = "dirt.png";
+picDirt.src = "mayorsQuestRes/dirt.png";
 var picWall = new Image(tileSize, tileSize);
-picWall.src = "wall.png";
+picWall.src = "mayorsQuestRes/wall.png";
 var picRock = new Image(tileSize, tileSize);
-picRock.src = "rock.png";
+picRock.src = "mayorsQuestRes/rock.png";
 var picFallingRock = new Image(tileSize, tileSize);
-picFallingRock.src = "fallingrock.png";
+picFallingRock.src = "mayorsQuestRes/fallingrock.png";
 var picDiamond = new Image(tileSize, tileSize);
-picDiamond.src = "diamond.png";
+picDiamond.src = "mayorsQuestRes/diamond.png";
 var picFallingDiamond = new Image(tileSize, tileSize);
-picFallingDiamond.src = "fallingdiamond.png";
+picFallingDiamond.src = "mayorsQuestRes/fallingdiamond.png";
 var picAmoeba = new Image(tileSize, tileSize);
-picAmoeba.src = "amoeba.png";
+picAmoeba.src = "mayorsQuestRes/amoeba.png";
 var picFirefly = new Image(tileSize, tileSize);
-picFirefly.src = "firefly.png";
+picFirefly.src = "mayorsQuestRes/firefly.png";
 var picButterfly = new Image(tileSize, tileSize);
-picButterfly.src = "butterfly.png";
+picButterfly.src = "mayorsQuestRes/butterfly.png";
 var picExit = new Image(tileSize, tileSize);
-picExit.src = "exit.png";
+picExit.src = "mayorsQuestRes/exit.png";
 var picPlayer = new Image(tileSize, tileSize);
-picPlayer.src = "player.png";
+picPlayer.src = "mayorsQuestRes/player.png";
 var picExplosion = new Image(tileSize, tileSize);
-picExplosion.src = "explosion.png";
+picExplosion.src = "mayorsQuestRes/explosion.png";
 
 var picPlayer3 = new Image(tileSize, tileSize);
-picPlayer3.src = "player3.png";
+picPlayer3.src = "mayorsQuestRes/player3.png";
 var picAmoeba3 = new Image(tileSize, tileSize);
-picAmoeba3.src = "amoeba3.png";
+picAmoeba3.src = "mayorsQuestRes/amoeba3.png";
 var picFallingRock2 = new Image(tileSize, tileSize);
-picFallingRock2.src = "fallingrock2.png";
+picFallingRock2.src = "mayorsQuestRes/fallingrock2.png";
 var picFallingRock3 = new Image(tileSize, tileSize);
-picFallingRock3.src = "fallingrock3.png";
+picFallingRock3.src = "mayorsQuestRes/fallingrock3.png";
 var picFallingRock4 = new Image(tileSize, tileSize);
-picFallingRock4.src = "fallingrock4.png";
+picFallingRock4.src = "mayorsQuestRes/fallingrock4.png";
 var picFallingDiamond2 = new Image(tileSize, tileSize);
-picFallingDiamond2.src = "fallingdiamond2.png";
+picFallingDiamond2.src = "mayorsQuestRes/fallingdiamond2.png";
 var picFallingDiamond3 = new Image(tileSize, tileSize);
-picFallingDiamond3.src = "fallingdiamond3.png";
+picFallingDiamond3.src = "mayorsQuestRes/fallingdiamond3.png";
 var picFallingDiamond4 = new Image(tileSize, tileSize);
-picFallingDiamond4.src = "fallingdiamond4.png";
+picFallingDiamond4.src = "mayorsQuestRes/fallingdiamond4.png";
 var tumble2 = new Image(tileSize, tileSize);
-tumble2.src = "tumble2.png";
+tumble2.src = "mayorsQuestRes/tumble2.png";
 var tumble3 = new Image(tileSize, tileSize);
-tumble3.src = "tumble3.png";
+tumble3.src = "mayorsQuestRes/tumble3.png";
 var tumble4 = new Image(tileSize, tileSize);
-tumble4.src = "tumble4.png";
+tumble4.src = "mayorsQuestRes/tumble4.png";
 
 var picDeathLabel = new Image(353, 418);
-picDeathLabel.src = "deathlabel.jpg";
+picDeathLabel.src = "mayorsQuestRes/deathlabel.jpg";
 var picWinLabel = new Image(353, 418);
-picWinLabel.src = "winlabel.jpg";
-var banner = new Image(gameWindowWidth, 100);
-banner.src = "banner.png";
+picWinLabel.src = "mayorsQuestRes/winlabel.jpg";
+//var banner = new Image(gameWindowWidth, 100);
+//banner.src = "mayorsQuestRes/banner.png";
 
 var news = new Array(
 	"Streetcars kill 5 taxpayers in fancy downtown neighbourhood",
@@ -742,7 +742,7 @@ var displayHeadline = function() {
 
 
 var playMayorsQuest = function(div) {
-	$(div).prepend(banner);
+	//$(div).prepend(banner);
 	levelLoad(levelBeingPlayed);
 	$(document).keydown(function(event){ keyInput(event.keyCode); return false; });
 	$("#soundButton").click(toggleSound);
