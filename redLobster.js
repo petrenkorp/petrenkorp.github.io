@@ -35,4 +35,4 @@ function showError(error) {
     }
 }
 
-document.getElementById("lobsterSearch").onclick = getPosition;
+document.getElementById("lobsterSearch").onclick = getLocation;
