@@ -8,14 +8,17 @@ function getLocation() {
 }
 function showPosition(position) {
     var latlon = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	
+	map.style.height = "400px";
+	map.style.width = "400px";
 
-	map = new google.maps.Map(document.getElementById(map, {
+	map = new google.maps.Map(map, {
 		center: latlon,
 		zoom: 14,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		mapTypeControl: false,
-		navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL},
-	}));
+		navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL}
+	});
 }
 	
 function showError(error) {
