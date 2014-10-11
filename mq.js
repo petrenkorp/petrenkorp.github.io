@@ -8,7 +8,9 @@
 
 var WIDTH = 40;
 var HEIGHT = 22;
-var tileSize = 60; //MAKE THIS MULTIPLES OF 20, TO PREVENT SKEWING
+var tileSize = Math.floor(document.getElementById("gameMap").offsetHeight / 10); //MAKE THIS MULTIPLES OF 20, TO PREVENT SKEWING
+var tileHeight = Math.floor(document.getElementById("gameMap").offsetHeight / 10);
+var tileWidth = Math.floor(document.getElementById("gameMap").offsetWidth / 10);
 var gameWindowHeight = tileSize * 10;
 var gameWindowWidth = tileSize * 10;
 
@@ -29,8 +31,64 @@ var crackHigh = false;
 var flies = [];
 var amoebaList = [];
 var boomList = [];
-var sound = true;
+var sound = false;
 
+var picEmpty = new Image(tileWidth, tileHeight);
+picEmpty.src = "mayorsQuestRes/empty.png";
+var picDirt = new Image(tileWidth, tileHeight);
+picDirt.src = "mayorsQuestRes/dirt.png";
+var picWall = new Image(tileWidth, tileHeight);
+picWall.src = "mayorsQuestRes/wall.png";
+var picRock = new Image(tileWidth, tileHeight);
+picRock.src = "mayorsQuestRes/rock.png";
+var picFallingRock = new Image(tileWidth, tileHeight);
+picFallingRock.src = "mayorsQuestRes/fallingrock.png";
+var picDiamond = new Image(tileWidth, tileHeight);
+picDiamond.src = "mayorsQuestRes/diamond.png";
+var picFallingDiamond = new Image(tileWidth, tileHeight);
+picFallingDiamond.src = "mayorsQuestRes/fallingdiamond.png";
+var picAmoeba = new Image(tileWidth, tileHeight);
+picAmoeba.src = "mayorsQuestRes/amoeba.png";
+var picFirefly = new Image(tileWidth, tileHeight);
+picFirefly.src = "mayorsQuestRes/firefly.png";
+var picButterfly = new Image(tileWidth, tileHeight);
+picButterfly.src = "mayorsQuestRes/butterfly.png";
+var picExit = new Image(tileWidth, tileHeight);
+picExit.src = "mayorsQuestRes/exit.png";
+var picPlayer = new Image(tileWidth, tileHeight);
+picPlayer.src = "mayorsQuestRes/player.png";
+var picExplosion = new Image(tileWidth, tileHeight);
+picExplosion.src = "mayorsQuestRes/explosion.png";
+
+var picPlayer3 = new Image(tileWidth, tileHeight);
+picPlayer3.src = "mayorsQuestRes/player3.png";
+var picAmoeba3 = new Image(tileWidth, tileHeight);
+picAmoeba3.src = "mayorsQuestRes/amoeba3.png";
+var picFallingRock2 = new Image(tileWidth, tileHeight);
+picFallingRock2.src = "mayorsQuestRes/fallingrock2.png";
+var picFallingRock3 = new Image(tileWidth, tileHeight);
+picFallingRock3.src = "mayorsQuestRes/fallingrock3.png";
+var picFallingRock4 = new Image(tileWidth, tileHeight);
+picFallingRock4.src = "mayorsQuestRes/fallingrock4.png";
+var picFallingDiamond2 = new Image(tileWidth, tileHeight);
+picFallingDiamond2.src = "mayorsQuestRes/fallingdiamond2.png";
+var picFallingDiamond3 = new Image(tileWidth, tileHeight);
+picFallingDiamond3.src = "mayorsQuestRes/fallingdiamond3.png";
+var picFallingDiamond4 = new Image(tileWidth, tileHeight);
+picFallingDiamond4.src = "mayorsQuestRes/fallingdiamond4.png";
+var tumble2 = new Image(tileWidth, tileHeight);
+tumble2.src = "mayorsQuestRes/tumble2.png";
+var tumble3 = new Image(tileWidth, tileHeight);
+tumble3.src = "mayorsQuestRes/tumble3.png";
+var tumble4 = new Image(tileWidth, tileHeight);
+tumble4.src = "mayorsQuestRes/tumble4.png";
+
+var picDeathLabel = new Image(353, 418);
+picDeathLabel.src = "mayorsQuestRes/deathlabel.jpg";
+var picWinLabel = new Image(353, 418);
+picWinLabel.src = "mayorsQuestRes/winlabel.jpg";
+
+/*
 var picEmpty = new Image(tileSize, tileSize);
 picEmpty.src = "mayorsQuestRes/empty.png";
 var picDirt = new Image(tileSize, tileSize);
@@ -87,6 +145,7 @@ var picWinLabel = new Image(353, 418);
 picWinLabel.src = "mayorsQuestRes/winlabel.jpg";
 //var banner = new Image(gameWindowWidth, 100);
 //banner.src = "mayorsQuestRes/banner.png";
+*/
 
 var news = new Array(
 	"Streetcars kill 5 taxpayers in fancy downtown neighbourhood",
@@ -277,7 +336,7 @@ var mapDraw = function() {
 	context.webkitImageSmoothingEnabled = false;
 	for (var i = 0; i < 10; i++) {
 		for (var j = 0; j < 10; j++) {
-			context.drawImage(levelMapInUse[mapX + i][mapY + j].img, i * tileSize, j * tileSize, tileSize, tileSize);
+			context.drawImage(levelMapInUse[mapX + i][mapY + j].img, i * tileWidth, j * tileHeight, tileWidth, tileHeight);
 		}
 	}
 	if (dead) { displayBillBlair(picDeathLabel);}
@@ -653,7 +712,7 @@ var crackTumble = function() {
 	var gameMap = document.getElementById("gameMap");
 	var context = gameMap.getContext("2d");
 	context.webkitImageSmoothingEnabled = false;
-	context.drawImage(TILE.PLAYER.img, (playerX - mapX) * tileSize, (playerY - mapY) * tileSize, tileSize, tileSize);
+	context.drawImage(TILE.PLAYER.img, (playerX - mapX) * tileWidth, (playerY - mapY) * tileHeight, tileWidth, tileHeight);
 }
 
 

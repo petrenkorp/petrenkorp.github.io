@@ -21,9 +21,7 @@
     <![endif]-->
 	
 	
-	<!-- Mayor's Quest-specific link-ins -->
-	<script src="mayorsQuestRes/levelmap.js"></script>
-	<script src="mq.js"></script>
+
 	
 	<style type='text/css'>
 		@font-face { 
@@ -34,6 +32,10 @@
 			font-family: mayorsFont, "Courier New";
 			font-size: 14px;
 			color: white;
+		}
+		#mayorsQuest {
+			width: 400px;
+			background: black;
 		}
 		#levelDiv {
 			width: 38%;
@@ -70,10 +72,6 @@
 			background: black;
 			color: white;
 		}
-		#mayorsQuest {
-			width: 600px;
-			background: black;
-		}
 	</style>
 	
   </head>
@@ -96,6 +94,7 @@
             <li><a href="index.html">Home</a></li>
 			<li><a href="#">Mayor's Quest</a></li>
 			<li><a href="dice.html">Roll A Die</a></li>
+			<li><a href="redLobster.html">Red Lobster Locator</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -140,10 +139,10 @@
 				  <div class='mayorsText' id='crackDiv'>CRACK: <span id='crackObtained'>00</span>/<span id='crackNeeded'>00</span></div>
 				  <div class='mayorsText' id='levelDiv'>LEVEL <span id='gameLevel'>0</span></div>
 				  <div class='mayorsText' id='soundButton'>SOUND: ON</div>
-				  <canvas id='gameMap' width='600px' height='600px'></canvas>
+				  <canvas id='gameMap' width="400px" height="400px">Use a Canvas-enabled browser to play Mayor's Quest.</canvas>
 				  <div class='mayorsText' id='newsTicker'>NewsBlast24: All the news. All of it.</div>
 				  <audio src='mayorsQuestRes/crack.mp3' id='sfx' />
-				  <audio src='mayorsQuestRes/whitelines.mp3' id='music' autoplay loop />
+				  <audio src='mayorsQuestRes/whitelines.mp3' id='music' loop />
 			  </div>
 		  </div>
 		</div><!-- /.row -->
@@ -157,5 +156,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="jquery-1.11.1.min.js"></script>
     <script src="bootstrap.min.js"></script>
+		<!-- Mayor's Quest-specific link-ins -->
+	<script src="mayorsQuestRes/levelmap.js"></script>
+	<script src="mq.js"></script>
   </body>
 </html>
