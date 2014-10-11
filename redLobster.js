@@ -34,4 +34,5 @@ function showError(error) {
             break;
     }
 }
-	
+
+document.getElementById("lobsterSearch").onclick = getPosition;
