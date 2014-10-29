@@ -5,7 +5,7 @@ var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
 var initializeMap = function() {
-	var nowhere = new google.Maps.LatLng(0, 0);
+	var nowhere = new google.maps.LatLng(0, 0);
 	map = new google.maps.Map(map, {
 		center: nowhere,
 		zoom: 1,
