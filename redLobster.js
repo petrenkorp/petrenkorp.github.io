@@ -16,7 +16,7 @@ var initializeMap = function() {
 	
 	map.style.width = "100%";
 	map.style.height = "100%";
-	map.style.min-height = "200px";
+	map.style.minHeight = "200px";
 }
 
 function getLocation() {
