@@ -7,7 +7,7 @@ var directionsService = new google.maps.DirectionsService();
 function initializeMap() {
 	map = new google.maps.Map(map, {
 		center: new google.maps.LatLng(0, 0),
-		zoom: 0,
+		zoom: 1,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		mapTypeControl: false,
 		navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL}
@@ -87,5 +87,5 @@ function showError(error) {
     }
 }
 
-initializeMap();
+window.onload = initializeMap;
 document.getElementById("lobsterSearch").onclick = getLocation;
