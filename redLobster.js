@@ -1,4 +1,5 @@
 var map = document.getElementById("googleMap");
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -19,6 +20,18 @@ function showPosition(position) {
 		mapTypeControl: false,
 		navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL}
 	});
+	
+	var service = new google.maps.places.PlacesService(map);
+	service.nearbySearch({location: latlon, 
+							radius: 50000,
+							name: "Red Lobster"},
+					callback);
+}
+
+function callback(results, status){
+	if (status == google.maps.places.PlacesServiceStatus.OK) {
+		createMarker(results[0]);
+	}
 }
 	
 function showError(error) {
