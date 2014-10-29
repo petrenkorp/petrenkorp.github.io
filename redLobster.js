@@ -6,8 +6,9 @@ var directionsService = new google.maps.DirectionsService();
 
 function initializeMap() {
 
-	document.getElementById("googleMap").style.height = "420px";
-	document.getElementById("googleMap").style.width = "690px";
+	document.getElementById("googleMap").style.height = "100%";
+	document.getElementById("googleMap").style.minHeight = "400px";
+	document.getElementById("googleMap").style.width = "100%";
 	
 	var nowhere = new google.maps.LatLng(0, 0);
 	map = new google.maps.Map(document.getElementById("googleMap"), {
