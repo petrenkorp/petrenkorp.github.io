@@ -4,7 +4,7 @@ var lobsterLocation;
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
-function initializeMap() {
+var initializeMap = function() {
 	map = new google.maps.Map(map, {
 		center: new google.maps.LatLng(0, 0),
 		zoom: 1,
