@@ -12,7 +12,7 @@ function initializeMap() {
 	var nowhere = new google.maps.LatLng(0, 0);
 	map = new google.maps.Map(document.getElementById("googleMap"), {
 		center: nowhere,
-		zoom: 1,
+		zoom: 2,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		mapTypeControl: false,
 		navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL}
@@ -29,19 +29,6 @@ function getLocation() {
 function showPosition(position) {
 	directionsDisplay = new google.maps.DirectionsRenderer();
     latlon = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	
-	//map.style.height = "300px";
-	//map.style.width = "200px";
-	
-	/*
-	map = new google.maps.Map(map, {
-		center: latlon,
-		zoom: 14,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		mapTypeControl: false,
-		navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL}
-	});
-	*/
 	
 	directionsDisplay.setMap(map);
 	
@@ -78,16 +65,16 @@ function displayRoute() {
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
-            map.innerHTML = "User denied the request for Geolocation."
+            document.getElementById("googleMap").innerHTML = "User denied the request for Geolocation."
             break;
         case error.POSITION_UNAVAILABLE:
-            map.innerHTML = "Location information is unavailable."
+            document.getElementById("googleMap").innerHTML = "Location information is unavailable."
             break;
         case error.TIMEOUT:
-            map.innerHTML = "The request to get user location timed out."
+            document.getElementById("googleMap").innerHTML = "The request to get user location timed out."
             break;
         case error.UNKNOWN_ERROR:
-            map.innerHTML = "An unknown error occurred."
+            document.getElementById("googleMap").innerHTML = "An unknown error occurred."
             break;
     }
 }
