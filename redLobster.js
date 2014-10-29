@@ -5,6 +5,10 @@ var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
 function initializeMap() {
+
+	document.getElementById("googleMap").style.height = "420px";
+	document.getElementById("googleMap").style.width = "690px";
+	
 	var nowhere = new google.maps.LatLng(0, 0);
 	map = new google.maps.Map(document.getElementById("googleMap"), {
 		center: nowhere,
@@ -26,8 +30,8 @@ function showPosition(position) {
 	directionsDisplay = new google.maps.DirectionsRenderer();
     latlon = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 	
-	//map.style.height = "400px";
-	//map.style.width = "400px";
+	//map.style.height = "300px";
+	//map.style.width = "200px";
 	
 	/*
 	map = new google.maps.Map(map, {

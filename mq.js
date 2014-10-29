@@ -83,9 +83,9 @@ tumble3.src = "mayorsQuestRes/tumble3.png";
 var tumble4 = new Image(tileWidth, tileHeight);
 tumble4.src = "mayorsQuestRes/tumble4.png";
 
-var picDeathLabel = new Image(353, 418);
+var picDeathLabel = new Image(tileSize * 6, tileSize * 7);
 picDeathLabel.src = "mayorsQuestRes/deathlabel.jpg";
-var picWinLabel = new Image(353, 418);
+var picWinLabel = new Image(tileSize * 6, tileSize * 7);
 picWinLabel.src = "mayorsQuestRes/winlabel.jpg";
 
 /*
