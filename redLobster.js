@@ -21,16 +21,21 @@ function showPosition(position) {
 		navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL}
 	});
 	
+	var request = {location: latlon, 
+					radius: 50000,
+					name: "Red Lobster"
+	};
+	
 	var service = new google.maps.places.PlacesService(map);
-	service.nearbySearch({location: latlon, 
-							radius: 50000,
-							name: "Red Lobster"},
-					callback);
+	service.nearbySearch(request, callback);
 }
 
 function callback(results, status){
 	if (status == google.maps.places.PlacesServiceStatus.OK) {
-		createMarker(results[0]);
+		var marker = new google.maps.Marker({
+			map: map,
+			position: results[0].geometry.location
+		});
 	}
 }
 	
