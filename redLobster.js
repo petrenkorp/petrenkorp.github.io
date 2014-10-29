@@ -5,13 +5,18 @@ var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
 var initializeMap = function() {
+	var nowhere = new google.Maps.LatLng(0, 0);
 	map = new google.maps.Map(map, {
-		center: new google.maps.LatLng(0, 0),
+		center: nowhere,
 		zoom: 1,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		mapTypeControl: false,
 		navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL}
 	});
+	
+	map.style.width = "100%";
+	map.style.height = "100%";
+	map.style.min-height = "200px";
 }
 
 function getLocation() {
