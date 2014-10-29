@@ -1,22 +1,18 @@
-var map = document.getElementById("googleMap");
+var map;
 var latlon;
 var lobsterLocation;
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
-var initializeMap = function() {
+function initializeMap() {
 	var nowhere = new google.maps.LatLng(0, 0);
-	map = new google.maps.Map(map, {
+	map = new google.maps.Map(document.getElementById("googleMap"), {
 		center: nowhere,
 		zoom: 1,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		mapTypeControl: false,
 		navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL}
 	});
-	
-	map.style.width = "100%";
-	map.style.height = "100%";
-	map.style.minHeight = "200px";
 }
 
 function getLocation() {
@@ -92,5 +88,5 @@ function showError(error) {
     }
 }
 
-window.onload = initializeMap;
+google.maps.event.addDomListener(window, 'load', initializeMap);
 document.getElementById("lobsterSearch").onclick = getLocation;
