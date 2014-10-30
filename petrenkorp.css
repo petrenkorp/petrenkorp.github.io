@@ -1,0 +1,23 @@
+#gameMap {
+	width: 400px;
+	height: 400px;
+}
+
+#die {
+	width: 775px;
+	height: 250px;
+	display: block;
+	margin: auto;
+}
+
+#kaneVideo {
+	width: 80%;
+}
+
+#mayorsQuest{
+	margin: auto;
+}
+
+.jumbotron {
+	margin-top: 10%;
+}

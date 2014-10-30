@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="bootstrap.min.css" />
 	<link rel="stylesheet" href="bootstrap-theme-yeti.css" />
 	<link rel="stylesheet" href="mayorsQuestRes/mq.css" />
+	<link rel="stylesheet" href="petrenkorp.css" />
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -24,7 +25,7 @@
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -33,22 +34,23 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Petrenkorp Industries</a>
+          <a class="navbar-brand" href="#jumpHome">Petrenkorp Industries</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#jumpHome">Home</a></li>
 			<li><a href="#jumpMayorsQuest">Mayor's Quest</a></li>
 			<li><a href="#jumpDice">Roll A Die</a></li>
 			<li><a href="#jumpLobster">Red Lobster Locator</a></li>
+			<li><a href="#jumpContact">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
 	
+	
     <div class="container" id="jumpHome">
-      <div class="jumbotron text-center" id="#about">
+      <div class="jumbotron text-center">
         <h1>Petrenkorp Industries</h1>
         <p class="lead">The World's Most Trusted Web Development Guy</p>
       </div>
@@ -56,49 +58,49 @@
 	
 	
     <div class="container" id="jumpMayorsQuest">
-		<div class="row">
+		<div class="jumbotron text-center">
+			<h1 class="lead text-center">MAYOR'S QUEST</h1>
+			<p>Help The Mayor collect as much crack as he needs before driving home on the 401.</p>
+		
+			<br />
+			<br />
 		  
-		  <div class="col-xs-4 panel panel-default">
-			<div class="panel-heading">
-			  <h3 class="panel-title">Mayor's Quest</h3>
+			<div id="mayorsQuest">
+				<div class='mayorsText' id='crackDiv'>CRACK: <span id='crackObtained'>00</span>/<span id='crackNeeded'>00</span></div>
+				<div class='mayorsText' id='levelDiv'>LEVEL <span id='gameLevel'>0</span></div>
+				<div class='mayorsText' id='soundButton'>SOUND: OFF</div>
+				<canvas id='gameMap' width="400px" height="400px">Use a Canvas-enabled browser to play Mayor's Quest.</canvas>
+				<div class='mayorsText' id='newsTicker'>NewsBlast24: All the news. All of it.</div>
+				<audio src='mayorsQuestRes/crack.mp3' id='sfx' />
+				<audio src='mayorsQuestRes/whitelines.mp3' id='music' loop />
 			</div>
-			<div class="panel-body">
-			    Help The Mayor collect as much crack as he needs before driving home on the 401.
+			  
+			<br />
+			<br />
+			  
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Controls</h3>
+				</div>
+				<div class="panel-body">
+					Arrow keys: move <br />
+					R: restart <br />
+					S: toggle sound <br />
+				</div>
+				
+			  
+				<div class="panel-heading">
+				  <h3 class="panel-title">Dangers</h3>
+				</div>
+				<div class="panel-body">
+				   STREETCARS will crush you underneath them if you are not careful. However, they can be pushed from side to side. <br />
+				   Avoid CAMERAPHONES - they will hunt you down and destroy you.<br />
+				   CYCLISTS pose a similar threat - but, should they be crushed by a streetcar, their crack is yours.<br />
+				   Beware the PRESS - though harmless, they can block the path of your car, trapping you in an urban hellscape.<br />
+				</div>
 			</div>
 		  
-		    <div class="panel-heading">
-			  <h3 class="panel-title">Controls</h3>
-			</div>
-			<div class="panel-body">
-			    Arrow keys: move <br />
-				R: restart <br />
-				S: toggle sound <br />
-			</div>
-		  
-			<div class="panel-heading">
-			  <h3 class="panel-title">Dangers</h3>
-			</div>
-			<div class="panel-body">
-			   STREETCARS will crush you underneath them if you are not careful. However, they can be pushed from side to side. <br />
-			   Avoid CAMERAPHONES - they will hunt you down and destroy you.<br />
-			   CYCLISTS pose a similar threat - but, should they be crushed by a streetcar, their crack is yours.<br />
-			   Beware the PRESS - though harmless, they can block the path of your car, trapping you in an urban hellscape.<br />
-			</div>
-		  
-		  </div><!-- /.col-xs-4 -->
-		  
-		  <div class="col-xs-8">
-			  <div id="mayorsQuest">
-				  <div class='mayorsText' id='crackDiv'>CRACK: <span id='crackObtained'>00</span>/<span id='crackNeeded'>00</span></div>
-				  <div class='mayorsText' id='levelDiv'>LEVEL <span id='gameLevel'>0</span></div>
-				  <div class='mayorsText' id='soundButton'>SOUND: OFF</div>
-				  <canvas id='gameMap' width="400px" height="400px">Use a Canvas-enabled browser to play Mayor's Quest.</canvas>
-				  <div class='mayorsText' id='newsTicker'>NewsBlast24: All the news. All of it.</div>
-				  <audio src='mayorsQuestRes/crack.mp3' id='sfx' />
-				  <audio src='mayorsQuestRes/whitelines.mp3' id='music' loop />
-			  </div>
-		  </div>
-		</div><!-- /.row -->
+		</div>
 
     </div><!-- /.container -->
 	
@@ -111,7 +113,7 @@
       <div class="jumbotron text-center">
         <h1>ROLL SOME DICE</h1>
 		<p class="lead text-center">At last, the thrill of gambling without the stakes!</p>
-        <svg width="100%" height="250" id="die">
+        <svg id="die">
 			
 			<script>
 				function rollDie(dieNode) {
@@ -191,6 +193,32 @@
     </div><!-- /.container -->
 	
 	
+	
+	<div class="container" id="jumpContact">
+		<div class="jumbotron text-center">
+			<h1>CONTACT PETRENKORP</h1>
+			<br />
+			<br />
+			<p class="lead text-center">Relax, and watch as our net runners dance through the webs of cyberspace.</p>
+			<br />
+			<br />
+			<video controls id="kaneVideo">
+				<source src="kane.mp4" type="video/mp4" />
+				<source src="kane.webm" type="video/webm" />
+				<p>Your browser is as old as the video that should be playing.</p>
+			</video>
+			<br />
+			<br />
+			<p class="text-center">Contact information goes here.</p>
+		</div>
+	</div>
+	
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -203,3 +231,4 @@
 	<script src="redLobster.js"></script>
   </body>
 </html>
+

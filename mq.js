@@ -379,13 +379,16 @@ var keyInput = function(keyCode) {
 			}
 			//uncomment to be able to skip levels
 			//loadNextLevel();
+			return false;
 			break;
 		case 82: 
 			levelBeingPlayed--;
 			loadNextLevel();
+			return false;
 			break;
 		case 83:
 			toggleSound();
+			return false;
 			break;
 		case 37:
 		case 38:
@@ -394,8 +397,10 @@ var keyInput = function(keyCode) {
 			if (!dead) {
 				playerMove(keyCode);
 			}
+			return false;
 			break;
 		default:
+			return true;
 			break;
 	}
 }
@@ -803,7 +808,7 @@ var displayHeadline = function() {
 var playMayorsQuest = function(div) {
 	//$(div).prepend(banner);
 	levelLoad(levelBeingPlayed);
-	$(document).keydown(function(event){ keyInput(event.keyCode); return false; });
+	$(window).keydown(function(event){ return keyInput(event.keyCode); });
 	$("#soundButton").click(toggleSound);
 	animationTimer = setInterval(animate, 100);
 	objectsTimer = setInterval(objectsMove, 250);
