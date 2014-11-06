@@ -31,7 +31,7 @@ function locationSuccess(position) {
 	
 	geocoder.geocode({"latLng": latlng}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-			if (results[0]) {
+			if (results[2]) {
 				locationString = results[2].address_components[0].short_name;
 				displayLocation(locationString);
 			}
