@@ -41,7 +41,7 @@ function locationSuccess(position) {
 }
 
 function displayLocation(words) {
-	document.getElementById("praise").innerHTML = "Better than any cupcakes in " + words + ".";
+	document.getElementById("praise").innerHTML = '"Better than any cupcakes in ' + words + '."';
 }
 
 window.onload = getLocation;
