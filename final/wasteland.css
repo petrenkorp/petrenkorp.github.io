@@ -1,0 +1,109 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	background-color: #000000;
+	background-image: url("main.gif");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: 100% 100%;
+	
+	font-family: 'Cabin', sans-serif;
+	color: #ffffff;
+}
+
+#imageCopyright {
+	font-size: 10px;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+header {
+	background-color: rgba(0, 0, 0, 0.75);
+	max-width: 800px;
+	margin: 0px;
+}
+
+h1 {
+	margin: 0px;
+}
+
+h3 {
+	margin: 0px;
+	display: inline;
+}
+
+nav {
+	background-color: rgba(0, 0, 0, 0.5);
+	max-width: 800px;
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+nav a {
+	margin: 0px 50px 0px 0px;
+	-webkit-animation: easeIn 1s;
+	animation: easeIn 1s;
+}
+
+@-webkit-keyframes easeIn {
+	from {
+		color: rgba(255, 255, 255, 0);
+		padding: 0px 0px 0px 10px;
+	}
+	to {
+		color: rgba(255, 255, 255, 1);
+		padding: 0px 0px 0px 0px;
+	}
+}
+
+@keyframes easeIn {
+	from {
+		color: rgba(255, 255, 255, 0);
+		padding: 0px 0px 0px 10px;
+	}
+	to {
+		color: rgba(255, 255, 255, 1);
+		padding: 0px 0px 0px 0px;
+	}
+}
+
+
+
+
+
+@media (max-width: 640px) {
+	body {
+		background-color: #000000;
+		background-image: none;
+	}
+
+	header {
+		max-width: 100%;
+	}
+
+	nav {
+		max-width: 100%;
+	}
+
+	#imageCopyright {
+		display: none;
+	}
+
+}
