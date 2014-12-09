@@ -75,25 +75,22 @@ function estimateShipping() {
 			var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			
 			geocoder.geocode({"latLng": latlng}, function(results, status) {
-				var shipping;
 				if (status == google.maps.GeocoderStatus.OK) {
-					for (result in results) {
-						console.log(results[result]);
-						for (component in result.address_components) {
-							if ($.inArray("country", component.types) >= 0) {
-								switch (component.long_name) {
-									case "Canada" :
-										return 5.00;
-										break;
-									case "United States" :
-										return 10.00;
-										break;
-									default:
-										return 20.00;
-										break;
-								}
-							} 
-						}
+					for (component in results[0].address_components) {
+						console.log(component);
+						if ($.inArray("country", component.types) >= 0) {
+							switch (component.long_name) {
+								case "Canada" :
+									return 5.00;
+									break;
+								case "United States" :
+									return 10.00;
+									break;
+								default:
+									return 20.00;
+									break;
+							}
+						} 
 					}
 				}
 			});
