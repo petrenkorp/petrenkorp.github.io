@@ -78,17 +78,17 @@ function estimateShipping() {
 				if (status == google.maps.GeocoderStatus.OK) {
 					for (component in results[0].address_components) {
 						console.log(component);
-						if ($.inArray("country", component.types) >= 0) {
-							switch (component.long_name) {
+						if ($.inArray("country", results[0].address_components[component].types) >= 0) {
+							switch (results[0].address_components[component].long_name) {
 								case "Canada" :
 									return 5.00;
-									break;
+									//break;
 								case "United States" :
 									return 10.00;
-									break;
+									//break;
 								default:
 									return 20.00;
-									break;
+									//break;
 							}
 						} 
 					}
