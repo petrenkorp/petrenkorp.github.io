@@ -82,8 +82,25 @@ function estimateShipping() {
 						for (field in results[0].address_components[component]) {
 							console.log(results[0].address_components[component][field]);
 							if (results[0].address_components[component][field].types) {
+								console.log("TYPES found!");
 								if (results[0].address_components[component][field].types[0] == "country") {
+									console.log("country match found! 11111");
 									switch (results[0].address_components[component][field].long_name) {
+										case "Canada" :
+											shipping = 5.00;
+											break;
+										case "United States" :
+											shipping = 10.00;
+											break;
+										default:
+											shipping = 20.00;
+											break;
+									}
+								} 
+								
+								if (results[0].address_components[component][field] == "country") {
+									console.log("country match found! 22222");
+									switch (results[0].address_components[component].long_name) {
 										case "Canada" :
 											shipping = 5.00;
 											break;
