@@ -78,7 +78,7 @@ function estimateShipping() {
 				var shipping;
 				if (status == google.maps.GeocoderStatus.OK) {
 					for (result in results) {
-						console.log(result);
+						console.log(results[result]);
 						for (component in result.address_components) {
 							if ($.inArray("country", component.types) >= 0) {
 								switch (component.long_name) {
