@@ -78,21 +78,24 @@ function estimateShipping() {
 			geocoder.geocode({"latLng": latlng}, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
 					for (component in results[0].address_components) {
-						console.log(results[0].address_components[component]);
+						//console.log(results[0].address_components[component]);
 						for (field in results[0].address_components[component]) {
-							if (results[0].address_components[component][field].types[0] == "country") {
-								switch (results[0].address_components[component][field].long_name) {
-									case "Canada" :
-										shipping = 5.00;
-										break;
-									case "United States" :
-										shipping = 10.00;
-										break;
-									default:
-										shipping = 20.00;
-										break;
-								}
-							} 
+							console.log(results[0].address_components[component][field]);
+							if (results[0].address_components[component][field].types) {
+								if (results[0].address_components[component][field].types[0] == "country") {
+									switch (results[0].address_components[component][field].long_name) {
+										case "Canada" :
+											shipping = 5.00;
+											break;
+										case "United States" :
+											shipping = 10.00;
+											break;
+										default:
+											shipping = 20.00;
+											break;
+									}
+								} 
+							}
 						}
 					}
 				}
