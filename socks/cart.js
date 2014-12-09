@@ -79,7 +79,7 @@ function estimateShipping() {
 				if (status == google.maps.GeocoderStatus.OK) {
 					for (component in results[0].address_components) {
 						console.log(results[0].address_components[component]);
-						if ($.inArray("country", results[0].address_components[component].types) >= 0) {
+						if (results[0].address_components[component].types[0] == "country") {
 							switch (results[0].address_components[component].long_name) {
 								case "Canada" :
 									shipping = 5.00;
