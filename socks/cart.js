@@ -70,7 +70,7 @@ function calculateCart(list, localStorage) {
 
 function estimateShipping() {
 	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(){
+		navigator.geolocation.getCurrentPosition(function(position){
 			var geocoder = new google.maps.Geocoder();
 			var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			
