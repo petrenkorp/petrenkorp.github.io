@@ -69,6 +69,7 @@ function calculateCart(list, localStorage) {
 
 
 function estimateShipping() {
+	var shipping = "--.--";
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position){
 			var geocoder = new google.maps.Geocoder();
@@ -77,18 +78,18 @@ function estimateShipping() {
 			geocoder.geocode({"latLng": latlng}, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
 					for (component in results[0].address_components) {
-						console.log(component);
+						console.log(results[0].address_components[component]);
 						if ($.inArray("country", results[0].address_components[component].types) >= 0) {
 							switch (results[0].address_components[component].long_name) {
 								case "Canada" :
-									return 5.00;
-									//break;
+									shipping = 5.00;
+									break;
 								case "United States" :
-									return 10.00;
-									//break;
+									shipping = 10.00;
+									break;
 								default:
-									return 20.00;
-									//break;
+									shipping = 20.00;
+									break;
 							}
 						} 
 					}
@@ -96,7 +97,7 @@ function estimateShipping() {
 			});
 		});
 	}
-	return "--.--";
+	return shipping;
 }
 
 
