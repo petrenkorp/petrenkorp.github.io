@@ -1,0 +1,134 @@
+/*WHOLE SITE*/
+
+body {
+	font-family: "Tahoma";
+}
+
+#everything {
+	width: 75%;
+	border-radius: 5px;
+}
+
+nav {
+	display: block;
+	clear: both;
+}
+
+header {
+	margin: 0px auto;
+	border-radius: 5px;
+}
+
+h1{
+	display: inline;
+	margin: 0px 25px;
+}
+
+h3 {
+	display: inline;
+	margin: 0px 25px;
+}
+
+#content {
+	width: 90%;
+}
+
+/*CATALOG*/
+
+.catalogRow {
+	height: 300px;
+	width: 80%;
+	background: #efefef;
+	border-radius: 5px;
+	margin: 25px;
+	padding: 25px;
+	transition: background 2s;
+	-webkit-transition: background 2s;
+}
+
+.catalogImage {
+	height: 250px;
+	width: 250px;
+	border-radius: 5px;
+	margin-right: 25px;
+	float: left;
+}
+
+.catalogText {
+	height: 250px;
+}
+
+.false {
+	background: #ffaaaa;
+}
+
+.bought {
+	background: #aaffaa;
+}
+
+
+
+/*CART*/
+
+#cartHeader {
+	background: aaaaff;
+
+}
+
+.cartRow {
+	background: aaaaaa;
+	transition: all 2s;
+	-webkit-transition: all 2s;
+}
+
+.cartImage {
+	height: 200px;
+	width: 200px;
+	border-radius: 5px;
+}
+
+.cartText {
+
+}
+
+.cartData {
+
+}
+
+
+
+/*SOCK GAME*/
+
+#sockGame {
+	height: 600px;
+	width: 600px;
+	background: #eeeeee;
+	transition: background 2s;
+	-webkit-transition: background 2s;
+}
+
+.sockTile {
+	height: 98px;
+	width: 98px;
+	display: inline-block;
+}
+
+.sockRow {
+	height: 100px;
+	width: 600px;
+}
+
+svg{
+	height: 98px;
+	width: 98px
+}
+
+.svg{
+	height: 98px;
+	width: 98px
+}
+
+.replaced-svg {
+	height: 100px;
+	width: 100px
+}
