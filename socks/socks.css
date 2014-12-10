@@ -7,30 +7,37 @@ body {
 #everything {
 	width: 75%;
 	border-radius: 5px;
-}
-
-nav {
-	display: block;
-	clear: both;
+	margin: 0px auto;
+	padding: 25px;
 }
 
 header {
+	display: block;
+	width: 80%;
 	margin: 0px auto;
+	padding: 10px 25px;
 	border-radius: 5px;
+	background: #ddddff;
+}
+
+nav {
+	width: 80%;
+	margin: 0px auto;
 }
 
 h1{
 	display: inline;
-	margin: 0px 25px;
+	margin: 0px 25px 0px 0px;
 }
 
 h3 {
 	display: inline;
-	margin: 0px 25px;
+	margin: 0px 0px 0px 25px;
 }
 
 #content {
-	width: 90%;
+	margin: 0px auto;
+	width: 80%;
 }
 
 /*CATALOG*/
@@ -38,9 +45,9 @@ h3 {
 .catalogRow {
 	height: 300px;
 	width: 80%;
-	background: #efefef;
+	background: #eeeeff;
 	border-radius: 5px;
-	margin: 25px;
+	margin: 25px auto;
 	padding: 25px;
 	transition: background 2s;
 	-webkit-transition: background 2s;
@@ -59,11 +66,11 @@ h3 {
 }
 
 .false {
-	background: #ffaaaa;
+	background: #ffeeee;
 }
 
 .bought {
-	background: #aaffaa;
+	background: #eeffee;
 }
 
 
@@ -71,12 +78,30 @@ h3 {
 /*CART*/
 
 #cartHeader {
-	background: aaaaff;
+	background: #eeeeff;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 25px;
+}
 
+#cartHeader .cartData {
+	display: inline;
+	clear: none;
+	border-radius: 5px;
+	padding: 5px;
+	background: #fafaff;
+}
+#cartHeader button{
+	display: block;
+	margin: 25px auto;
 }
 
 .cartRow {
-	background: aaaaaa;
+	height: 200px;
+	margin: 25px;
+	padding: 10px;
+	background: #eeeeff;
+	border-radius: 5px;
 	transition: all 2s;
 	-webkit-transition: all 2s;
 }
@@ -85,14 +110,21 @@ h3 {
 	height: 200px;
 	width: 200px;
 	border-radius: 5px;
+	float: left;
+	margin-right: 10px;
 }
 
 .cartText {
-
+	margin-top: 10px;
 }
 
 .cartData {
+	margin: 10px 25px;
+}
 
+#cartTitle {
+	margin: 10px auto 20px auto;
+	text-align: center;
 }
 
 
@@ -102,9 +134,20 @@ h3 {
 #sockGame {
 	height: 600px;
 	width: 600px;
-	background: #eeeeee;
+	background: #eeeeff;
+	margin: 25px auto;
+	border-radius: 5px;
 	transition: background 2s;
 	-webkit-transition: background 2s;
+}
+
+#sockGameDescription {
+	width: 80%;
+	margin: 25px auto 0px auto;
+	padding: 5px;
+	border-radius: 5px;
+	text-align: center;
+	background: #eeeeff
 }
 
 .sockTile {
@@ -131,4 +174,38 @@ svg{
 .replaced-svg {
 	height: 100px;
 	width: 100px
+}
+
+
+/* CONTACT */
+
+#contactTitle {
+	width: 80%;
+	margin: 25px auto;
+	background: #eeeeff;
+	border-radius: 5px;
+	padding: 10px;
+	text-align: center;
+}
+
+#contactForm {
+	width: 80%;
+	margin: 25px auto;
+	background: #eeeeff;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+form div {
+	margin: 10px auto;
+	width: 80%;
+}
+
+label {
+	margin: auto 5px;
+}
+
+#formSubmit {
+	width: 40px;
+	margin: 5px auto;
 }

@@ -4,10 +4,10 @@ $(document).ready(function() {estimateShipping();});
 function loadCart(list, localStorage) {
 	$("#cart").children().remove();
 	
-	var cartHeader = "<div id='cartHeader'>";
+	var cartHeader = "<div id='cartHeader'><h2 id='cartTitle'>YOUR SHOPPING CART</h2>";
 	cartHeader += "<p class='cartData'># OF ITEMS: <span id='totalSocks'></span></p>";
+	cartHeader += "<p class='cartData'>SHIPPING ESTIMATE: $<span id='shippingEstimate'>--.--</span> (<span id='country'>Unknown Country</span>)</p>";
 	cartHeader += "<p class='cartData'>TOTAL PRICE: $<span id='totalCost'></span></p>";
-	cartHeader += "<p class='cartData'>SHIPPING ESTIMATE: $<span id='shippingEstimate'>--.--</span></p>";
 	cartHeader += "<button>PROCEED TO CHECKOUT</button>";
 	cartHeader += "</div>";
 	$("#cart").prepend($(cartHeader));
@@ -38,7 +38,7 @@ function loadCart(list, localStorage) {
 		$("#cart").append(newNode);
 	}
 	
-	calculateCart(list, localStorage);
+	//calculateCart(list, localStorage);
 	
 }
 
@@ -51,16 +51,14 @@ function deleteCartItem(button){
 function calculateCart(list, localStorage) {
 	var totalCost = 0;
 	var totalSocks = 0;
-	var shippingCost = estimateShipping();
+	var shippingCost = parseFloat($("#shippingEstimate").html());
 	
 	for (element in localStorage) {
 		totalCost += parseFloat(list[element].price * localStorage[element]);
 		totalSocks += parseInt(localStorage[element]);
 	}
 	
-	if (!shippingCost.isNAN) {
-		totalCost += shippingCost;
-	}
+	totalCost += parseFloat(shippingCost);
 	
 	$("#shippingEstimate").html(shippingCost);
 	$("#totalCost").html(totalCost);
@@ -69,7 +67,6 @@ function calculateCart(list, localStorage) {
 
 
 function estimateShipping() {
-	var shipping = "--.--";
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position){
 			var geocoder = new google.maps.Geocoder();
@@ -78,48 +75,28 @@ function estimateShipping() {
 			geocoder.geocode({"latLng": latlng}, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
 					for (component in results[0].address_components) {
-						//console.log(results[0].address_components[component]);
-						for (field in results[0].address_components[component]) {
-							console.log(results[0].address_components[component][field]);
-							if (results[0].address_components[component][field].types) {
-								console.log("TYPES found!");
-								if (results[0].address_components[component][field].types[0] == "country") {
-									console.log("country match found! 11111");
-									switch (results[0].address_components[component][field].long_name) {
-										case "Canada" :
-											shipping = 5.00;
-											break;
-										case "United States" :
-											shipping = 10.00;
-											break;
-										default:
-											shipping = 20.00;
-											break;
-									}
-								} 
-								
-								if (results[0].address_components[component][field] == "country") {
-									console.log("country match found! 22222");
-									switch (results[0].address_components[component].long_name) {
-										case "Canada" :
-											shipping = 5.00;
-											break;
-										case "United States" :
-											shipping = 10.00;
-											break;
-										default:
-											shipping = 20.00;
-											break;
-									}
-								} 
+						if (results[0].address_components[component].types[0] == "country") {
+							switch (results[0].address_components[component].long_name) {
+								case "Canada" :
+									$("#shippingEstimate").html("5.00");
+									$("#country").html("Canada");
+									break;
+								case "United States" :
+									$("#shippingEstimate").html("10.00");
+									$("#country").html("USA");
+									break;
+								default:
+									$("#shippingEstimate").html("20.00");
+									$("#country").html("Int'l");
+									break;
 							}
-						}
+							calculateCart(catalog, localStorage);
+						} 
 					}
 				}
 			});
 		});
 	}
-	return shipping;
 }
 
 
