@@ -13,11 +13,12 @@ body {
 
 header {
 	display: block;
-	width: 80%;
+	width: 60%;
 	margin: 0px auto;
 	padding: 10px 25px;
 	border-radius: 5px;
 	background: #ddddff;
+	font-family: 'Lilita One', cursive;
 }
 
 nav {
@@ -27,12 +28,12 @@ nav {
 
 h1{
 	display: inline;
-	margin: 0px 25px 0px 0px;
+	margin: 0px 10px 0px 0px;
 }
 
 h3 {
 	display: inline;
-	margin: 0px 0px 0px 25px;
+	margin: 0px 0px 0px 10px;
 }
 
 #content {
