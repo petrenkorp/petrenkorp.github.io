@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--
+	<link href='http://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+	-->
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="wasteland.css" />
+	<script src="jquery-1.11.1.min.js"></script>
+	<script src="mayorsQuestRes/levelmap.js"></script>
+	<script src="mq.js"></script>
+</head>
+
+<body>
+
+	<header>
+		<a href="index.html"><h1>New Wasteland Media</h1></a>
+	</header>
+	
+	<nav>
+		<a href="cv.html"><h3>CV</h3></a>
+		<a href="programming.html"><h3>PROGRAMMING</h3></a>
+		<a href="writing.html"><h3>WRITING</h3></a>
+	</nav>
+	
+	<nav id="subNav">
+		<a href="mayorsQuest.html"><h3>Mayor's Quest</h3></a>
+		<a href="sockPairer.html"><h3>SockPairer</h3></a>
+	</nav>
+	
+	<div id="content">
+		
+		<div id="mayorsQuest">
+			<div class='mayorsText' id='crackDiv'>CRACK: <span id='crackObtained'>00</span>/<span id='crackNeeded'>00</span></div>
+			<div class='mayorsText' id='levelDiv'>LEVEL <span id='gameLevel'>0</span></div>
+			<div class='mayorsText' id='soundButton'>SOUND: OFF</div>
+		
+			<canvas id='gameMap' width='600px' height='600px'>Canvas element required to play Mayor's Quest</canvas>
+			<div class='mayorsText' id='newsTicker'>NewsBlast24: All the news. All of it.</div>
+			<audio src='mayorsQuestRes/crack.mp3' id='sfx' />
+			<audio src='mayorsQuestRes/whitelines.mp3' id='music' loop />
+		</div>
+		<div class='contentText dark'>
+			<p>A remake of the classic Atari game Boulderdash.</p>
+			<p>Arrow keys move, R restarts, S toggles sound.</p>
+			<p>Collect crack and flee to the 401.</p>
+			<p>Dodge streetcars, or push them around and crush cyclists and smartphones.</p>
+			<p>Don't sue. Please don't sue.</p>
+			<p>Originally programmed in Java. Ported to Javascript for the hell of it.</p>
+		</div>
+	</div>
+	
+	<div id="imageCopyright"><a href="https://www.flickr.com/photos/seattlemunicipalarchives/3307102152/">Photo</a> by Seattle Municipal Archives / <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></div>
+</body>
+</html>
