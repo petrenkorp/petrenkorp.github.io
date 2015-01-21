@@ -37,18 +37,23 @@ header {
 }
 
 h1 {
+	color: #ffffff;
 	margin: 0px;
+	transition: text-shadow 1s;
+	-webkit-transition: text-shadow 1s;
 }
 
-h3 {
-	margin: 0px;
-	display: inline;
-	text-align: center;
+h1:hover {
+	text-shadow: 0 0 60px #ffffff;
+	transition: text-shadow 1s;
+	-webkit-transition: text-shadow 1s;
 }
 
 h4 {
 	margin-bottom: 5px;
 }
+
+
 
 nav {
 	width: 100%;
@@ -58,25 +63,33 @@ nav {
 	text-align: center;
 }
 
-nav a {
-	margin: 0% 5%;
-	-webkit-animation: easeIn 1s;
-	animation: easeIn 1s;
+nav h3 {
+	padding-left: 25px;
+	padding-right: 25px;
 }
 
-a {
+h3 {
+	margin: 0px;
+	display: inline;
+	text-align: center;
 	text-decoration: none;
 	color: #ffffff;
 	transition: text-shadow 1s;
 	-webkit-transition: text-shadow 1s;
+	-webkit-animation: easeIn 1s;
+	animation: easeIn 1s;
 }
 
-a:hover {
+h3:hover {
 	text-shadow: 0 0 60px #ffffff;
 	transition: text-shadow 1s;
 	-webkit-transition: text-shadow 1s;
 }
 
+a, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: inherit;
+}
 
 
 
@@ -84,6 +97,17 @@ a:hover {
 	background-color: rgba(0, 0, 0, 0.375);
 	padding: 10px 0px;
 }
+
+.writingLink:hover {
+	cursor: pointer;
+}
+
+.writingLink {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+
 
 #content{
 	width: 100%;
@@ -109,14 +133,14 @@ a:hover {
 .columnLeft {
 	width: 45%;
 	float: left;
-	margin: 10px;
+	margin: 10px 0px 10px 10px;
 	text-align: left;
 }
 
 .columnRight {
 	width: 45%;
 	float: right;
-	margin: 10px;
+	margin: 10px 10px 10px 0px;
 	text-align: left;
 }
 
@@ -127,7 +151,8 @@ a:hover {
 
 .writing {
 	text-align: justify;
-	padding: 10px 80px;
+	padding: 10px;
+	max-width: 800px;
 }
 
 .contentText h4 {
@@ -138,26 +163,21 @@ a:hover {
 
 
 
-
 @-webkit-keyframes easeIn {
 	from {
 		color: rgba(255, 255, 255, 0);
-		padding: 0px 0px 0px 20px;
 	}
 	to {
 		color: rgba(255, 255, 255, 1);
-		padding: 0px 0px 0px 0px;
 	}
 }
 
 @keyframes easeIn {
 	from {
 		color: rgba(255, 255, 255, 0);
-		padding: 0px 0px 0px 20px;
 	}
 	to {
 		color: rgba(255, 255, 255, 1);
-		padding: 0px 0px 0px 0px;
 	}
 }
 
@@ -181,6 +201,16 @@ a:hover {
 
 	#imageCopyright {
 		display: none;
+	}
+	
+	.columnLeft {
+		float: none;
+		width: 90%;
+	}
+	
+	.columnRight {
+		float: none;
+		width: 90%;
 	}
 
 }

@@ -4,6 +4,8 @@
 	<!--
 	<link href='http://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
 	-->
+	<script src="jquery-1.11.1.min.js"></script>
+	<script src="wasteland.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="wasteland.css" />
 </head>
@@ -11,23 +13,24 @@
 <body>
 
 	<header>
-		<a href="index.html"><h1>New Wasteland Media</h1></a>
+		<h1><a href="index.html">New Wasteland Media</a></h1>
 	</header>
 	
 	<nav>
-		<a href="cv.html"><h3>CV</h3></a>
-		<a href="programming.html"><h3>PROGRAMMING</h3></a>
-		<a href="writing.html"><h3>WRITING</h3></a>
+		<h3><a href="cv.html">CV</a></h3>
+		<h3><a href="programming.html">PROGRAMMING</a></h3>
+		<h3><a href="writing.html">WRITING</a></h3>
 	</nav>
 	
 	<nav id="subNav">
-		<a href="budLight.html"><h3>Bud Light Lime</h3></a>
-		<a href="http://www.scion.ca/scion/en/lifestyle/magazine"><h3>Scion Magazine</h3></a>
+		<h3 class="writingLink" id="budLight">Bud Light Lime</h3>
+		<h3 class="writingLink" id="greatDebate">The Great Debate</h3>
+		<h3 class="writingLink"><a href="http://www.scion.ca/scion/en/lifestyle/magazine">Scion Magazine</a></h3>
 	</nav>
 	
 	<div id="content">
-		<div class='contentText'>
-			<p>Some writing worth keeping around.</p>
+		<div class='contentText dark writing' id="writingArticle">
+			<h4>Some writing that still holds up.</h4>
 		</div>
 	</div>
 	
