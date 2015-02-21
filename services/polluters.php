@@ -11,9 +11,9 @@
 
     // declare vars
     $db_host = "localhost";
-    $db_name = "code";
-    $db_user = "root";
-    $db_pass = "";
+    $db_name = "manyscie_code";
+    $db_user = "manyscie_codeusr";
+    $db_pass = "password2455";
     $db = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 

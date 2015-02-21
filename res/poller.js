@@ -13,7 +13,8 @@ poller = (function( $ ) {
 		var params = $.param( paramObj );
 
 		$.ajax({
-			url: 'http://wamp.globalnews.ca/content/hack/petrenkorp.github.io/services/polluters.php?' + params,
+			//url: 'http://wamp.globalnews.ca/content/hack/petrenkorp.github.io/services/polluters.php?' + params,
+			url: 'http://madscientistblog.com/hack/polluters.php?' + params,
 			dataType: 'jsonp'
 		})
 		.done( function( data ) {
@@ -30,8 +31,8 @@ poller = (function( $ ) {
 	};
 })( jQuery );
 
-//poller.fetch( 43.6502840, -79.3843010, 10, output );
+poller.fetch( 43.6502840, -79.3843010, 10, output );
 
-//function output( data ) {
-//	console.log( data );
-//}
+function output( data ) {
+	console.log( data );
+}
