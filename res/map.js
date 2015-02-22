@@ -75,7 +75,7 @@ var markersArray;
 				return;
 			}
 			var latLong = new google.maps.LatLng(places[0].geometry.location.k, places[0].geometry.location.D);
-			getPlaces(latLong);
+			getPlaces(latLong, true);
 			map.panTo(latLong);
 			map.setZoom(12);
 			
@@ -84,7 +84,7 @@ var markersArray;
 		
 		
 		google.maps.event.addListener(map, 'click', function(event) {
-			getPlaces(event.latLng);
+			getPlaces(event.latLng, true);
 		});
 		
 		
@@ -102,7 +102,7 @@ var markersArray;
 	
 })();
 
-function getPlaces(location) {
+function getPlaces(location, loadGif) {
 
 	placesArray = [];
 	if (markersArray.length > 0) {
@@ -113,6 +113,13 @@ function getPlaces(location) {
 	markersArray = [];
 	
 	var radius = 10; //parseInt($("#radiusSelect").val());
+
+	// loading gif
+	if ( loadGif && loadGif == true ) {
+		$( "#mapWindow .loader" ).css('display','block').animate({
+    		opacity: 1
+  		}, 200);
+	}
 	
 	poller.fetch(location.k, location.D, radius, function(data){
 	
@@ -140,6 +147,13 @@ function getPlaces(location) {
 
 			markersArray.push(marker);
 		}
+
+		//remove loading gif
+		$( "#mapWindow .loader" ).animate({
+    		opacity: 0
+  		}, 200, function() {
+  			$( "#mapWindow .loader" ).css('display','none');
+  		});
 		
 		displayNearestPolluters();
 	});
