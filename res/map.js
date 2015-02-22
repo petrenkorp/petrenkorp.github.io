@@ -45,13 +45,11 @@ var markersArray;
 		
 		google.maps.event.addListener(map, 'click', function(event) {
 			getPlaces(event.latLng);
-			//displayNearestPolluters();
 		});
 		
 		
 		google.maps.event.addListenerOnce(map, 'idle', function(){
 			getMyLocation();
-			//displayNearestPolluters();
 		});
 	
 	}

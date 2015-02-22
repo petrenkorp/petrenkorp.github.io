@@ -19,6 +19,7 @@ function getMyLocation() {
 			getPlaces(loc);
 			map.panTo(loc);
 			map.setZoom(12);
+			displayNearestPolluters();
 		}, function(error){
 			//nah
 		});
@@ -59,21 +60,23 @@ function hideDataWindow() {
 
 function displayMarkerData(pollutionData){
 
-	var prevPage = $("#dataList").html();
+	var prevPage = $("#dataWindow").html();
 	
-	$("#dataList").html("");
+	var title = $("#dataWindowTitle");
 	
-	var dataListHeader = $("<div id='dataListHeader'></div>");
-	dataListHeader.append("<h3><a>" + pollutionData.Facility_Name + "</a></h3>")
-		.append("<h5>" + pollutionData.Company_Name + "</h5>")
-	dataListHeader.find("a").click(function(){
+	title.html("");
+	title.append("<h3>" + pollutionData.Facility_Name + "</h3>")
+		.append("<h5>" + pollutionData.Company_Name + "</h5>");
+	
+	title.find("h3").click(function(){
 		map.panTo(new google.maps.LatLng(pollutionData.Latitude, pollutionData.Longitude));
 		map.setZoom(12);
 		hideDataWindow();
 	});
-	$("#dataList").append(dataListHeader);
 	
+	$("#dataWindowTitle").html(title.html());
 	
+	$("#dataList").html("");
 	
 	for (var x = 0, len = pollutionData.Pollutants.length; x < len; x++){
 	
@@ -106,9 +109,9 @@ function displayMarkerData(pollutionData){
 		$("#dataList").append(dataListItem);
 	}
 	
-	$("#dataList").append("<button><-- BACK</button>");
-	$("#dataList").children("button class='btn btn-default'").click(function(){
-		$("#dataList").html(prevPage);
+	$("#dataList").append("<button class='btn btn-default'><-- BACK</button>");
+	$("#dataList").children("button").click(function(){
+		$("#dataWindow").html(prevPage);
 	});
 	
 	
@@ -121,12 +124,13 @@ function displayMarkerData(pollutionData){
 
 function displayNearestPolluters() {
 	
-	
+	$("#dataWindowTitle").html("<h3>Five Nearest Polluters</h3>");
 	
 	var dataList = $("#dataList");
 	dataList.html("");
-	dataList.append("<h3>Five Nearest Polluters</h3>");
-	for (var x = 0; x < Math.min(placesArray.length, 5); x++) {
+	
+	for (var x = 0, len = Math.min(Object.keys(placesArray).length, 5); x < len; x++) {
+		console.log("woo!");
 		var dataListItem = $("<div class='dataListItem'></div>");
 		//var total = 0;
 		dataListItem.append("<div class='dataListItemName'>" + placesArray[x].Company_Name + ": " + placesArray[x].Facility_Name + "</div>");
