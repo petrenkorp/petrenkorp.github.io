@@ -269,6 +269,10 @@ a:hover {
 		font-size: 36px;
 	}
 
+	#dataButton {
+		display: none;
+	}
+
 	#dataWindow {
 		left: 0%;
 		width: 35%;
