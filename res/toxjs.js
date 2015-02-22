@@ -3,7 +3,7 @@
  */
 
 
-var resultOfTest = generateChemLink("benzene");
+var resultOfTest = generateChemLink("benzene", function(url){ console.log('url:' + url)});
 
 function generateChemLink(chemicalName, callBack)
 {
@@ -13,6 +13,7 @@ function generateChemLink(chemicalName, callBack)
         type: "POST",
         url: "http://toxgate.nlm.nih.gov/cgi-bin/sis/search2",
         data: "queryxxx=" + chemicalName + "&database=hsdb&Stemming=1&" + "and=1&second_search=1&gateway=1&chemsyn=1",
+        crossDomain: true,
         success: secondQuery,
         dataType: "xml"
     });
@@ -24,6 +25,7 @@ function generateChemLink(chemicalName, callBack)
         var tempRecord =  xmlDoc.find("TemporaryFile");
         $.ajax({
             url:"http://toxgate.nlm.nih.gov/cgi-bin/sis/search2/g?"+tempRecord +":20",
+            crossDomain: true,
             success:returnLink
         })
 
