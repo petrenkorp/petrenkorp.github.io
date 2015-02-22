@@ -1,4 +1,4 @@
-# ${1:Pollute Watch Canada}
+# Pollute Watch Canada
 
 Welcome to PolluteWatch - an interactive map of Canadian pollutant releases.
 
