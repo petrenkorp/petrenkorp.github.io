@@ -129,12 +129,14 @@ function displayNearestPolluters() {
 	var dataList = $("#dataList");
 	dataList.html("");
 	
-	for (var x = 0, len = Math.min(Object.keys(placesArray).length, 5); x < len; x++) {
-		console.log("woo!");
+	//for (var x = 0, len = Math.min(Object.keys(placesArray).length, 5); x < len; x++) {
+	var count = 0;
+	for (var x in placesArray) {
+		count++;
+		if (count == 5) {return;}
+		
 		var dataListItem = $("<div class='dataListItem'></div>");
-		//var total = 0;
 		dataListItem.append("<div class='dataListItemName'>" + placesArray[x].Company_Name + ": " + placesArray[x].Facility_Name + "</div>");
-		//dataListItem.append("<div class='dataListItemAmount'>Total Pollution: </div>);"
 		dataListItem.click(function(){
 			displayMarkerData(placesArray[x]);
 			map.panTo(new google.maps.LatLng(placesArray[x].Latitude, placesArray[x].Longitude));

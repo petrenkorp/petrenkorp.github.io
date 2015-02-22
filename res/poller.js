@@ -18,7 +18,7 @@ poller = (function( $ ) {
 			dataType: 'jsonp'
 		})
 		.done( function( data ) {
-			console.log( 'data fetched' );
+			//console.log( 'data fetched' );
 			callback( data );
 		})
 		.fail( function( data ) {

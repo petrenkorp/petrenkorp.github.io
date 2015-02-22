@@ -78,7 +78,6 @@ function getPlaces(location) {
 	
 		placesArray = data;
 
-		//for (var x = 0, len = placesArray.length; x < len; x++) {
 		for (var x in placesArray) {
 			var ll = new google.maps.LatLng(placesArray[x].Latitude, placesArray[x].Longitude);
 			var marker = new google.maps.Marker({
