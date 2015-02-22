@@ -10,10 +10,21 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <!--header font-->
+    <link href='http://fonts.googleapis.com/css?family=Chango' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div id="container">
-	
+        <div class="main-logo">
+            <h1>AbsPollutely</h1>
+        </div>
+
+        <div class="row search_bar">
+            <div class="col-md-6"><input id="searchBox" class="form-control" type="text" placeholder="Tyoe a location"></div>
+            <div class="col-md-4"><button id="myLocation" class="btn btn-default">ML</button></div>
+        </div>
+
 		<div id="dataWindow">
 			<h2 id="dataWindowTitle">PollutantFinder</h2>
 			<div id="dataList">
@@ -21,10 +32,9 @@
 		</div><!--/dataWindow-->
 		
 		<div id="mapWindow">
-			<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-			<div id="myLocation">ML</div>
+
 			<div id="googleMap">Attempting to load Google Map</div>
-			<div id="dataButton">DB</div>	
+            <button id="dataButton" class="btn btn-default">DB</button>
 		</div><!--/mapView-->
 		
 	</div><!--/container-->
