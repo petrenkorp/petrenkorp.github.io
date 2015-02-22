@@ -7,9 +7,9 @@ $(document).ready(function() {
 	});
 	
 	
-	$("#myLocation").click(function(){
+	/*$("#myLocation").click(function(){
 		getMyLocation();
-	});
+	});*/
 	
 	$("#dataWindow").on('transitionend webkitTransitionEnd oTransitionEnd', function () {
 		if ($("#dataWindow").css("left") == "0px") {	
@@ -25,7 +25,8 @@ $(document).ready(function() {
 		//disableMouse: true,
 		eventPassthrough: 'horizontal',
 		fadeScrollbars: true,
-		scrollbars: true
+		scrollbars: true,
+		mouseWheel: true
 	});
 
 	$(function() {      
@@ -94,7 +95,8 @@ function displayMarkerData(pollutionData){
 	var title = $("#dataWindowTitle");
 	
 	title.append("<h3>" + pollutionData.Facility_Name + "</h3>")
-		.append("<h5>" + pollutionData.Company_Name + " <span>see all &#8629;</span></h5>");
+		.append("<h5>" + pollutionData.Company_Name + "</h5>")
+		.append("<span>see all &#8629;</span>");
 	
 	/*title.find("h3").click(function(){
 		map.panTo(new google.maps.LatLng(pollutionData.Latitude, pollutionData.Longitude));
@@ -105,7 +107,7 @@ function displayMarkerData(pollutionData){
 
 	$("#dataWindow").on('click', '#dataWindowTitle span',function(){
 		displayNearestPolluters();
-	})
+	});
 	
 	$("#dataWindowTitle").html(title.html());
 	
@@ -113,7 +115,7 @@ function displayMarkerData(pollutionData){
 	
 	for (var x = 0, len = pollutionData.Pollutants.length; x < len; x++){
 	
-		var dataListItem = $("<div class='dataListItem'></div>");
+		var dataListItem = $("<div class='dataListItem pollutant'></div>");
 		var listCount = [];
 		
 		dataListItem.append("<div class='dataListItemName'>" + pollutionData.Pollutants[x].Substance_Name_En + "</div>");
@@ -138,6 +140,13 @@ function displayMarkerData(pollutionData){
 			}
 			//dataListItem.append("<div class='dataListItemAmount dataListItemAmountTotal'>TOTAL: " + total + "</div>");
 		}
+
+		//toxicity lookup functionality
+		var cas = pollutionData.Pollutants[x].CAS_Number;
+		var url = toxLookup.cas;
+		//if ( url ) {
+			dataListItem.append("<div class='dataListLearnMore'>Learn More</div><a href='" + url + "' target='_blank'><span></span></a>");
+		//}
 		
 		$("#dataList").append(dataListItem);
 
@@ -195,7 +204,6 @@ function displayNearestPolluters() {
 	}
 	
 	resetIScroll();
-	
 }
 	
 	

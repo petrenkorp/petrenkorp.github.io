@@ -2,7 +2,41 @@ var map;
 var placesArray;
 var markersArray;
 
+
 (function() {
+
+	function HomeControl(controlDiv, map) {
+
+	  // Set CSS for the control border
+	  var controlUI = document.createElement('div');
+	  controlUI.style.backgroundColor = '#fff';
+	  controlUI.style.border = '2px solid #fff';
+	  controlUI.style.borderRadius = '3px';
+	  controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+	  controlUI.style.cursor = 'pointer';
+	  controlUI.style.marginBottom = '40px';
+	  controlUI.style.marginLeft = '-40px';
+	  controlUI.style.textAlign = 'center';
+	  controlUI.title = 'Click to geolocate current position';
+	  controlDiv.appendChild(controlUI);
+
+	  // Set CSS for the control interior
+	  var controlText = document.createElement('div');
+	  controlText.style.color = 'rgb(25,25,25)';
+	  controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+	  controlText.style.fontSize = '16px';
+	  controlText.style.lineHeight = '38px';
+	  controlText.style.paddingLeft = '10px';
+	  controlText.style.paddingRight = '10px';
+	  //controlText.innerHTML = '<img src="res/geolocate-icon.png" />';
+	  controlText.innerHTML = '<span class="glyphicon glyphicon-home" aria-hidden="true"></span>';
+	  controlUI.appendChild(controlText);
+
+	  google.maps.event.addDomListener(controlUI, 'click', function() {
+	    getMyLocation();
+	  });
+
+	}
 
 	function initializeMap() {
 	
@@ -22,13 +56,19 @@ var markersArray;
 			
 		});
 
+		// geolocate button
+		var homeControlDiv = document.createElement('div');
+  		var homeControl = new HomeControl(homeControlDiv, map);
+ 		homeControlDiv.index = 1;
+  		map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(homeControlDiv);
 
-
-
-        var input = document.getElementById('searchBox');
-        var autocomplete = new google.maps.places.Autocomplete(input);
+        //var input = document.getElementById('searchBox');
+        //var autocomplete = new google.maps.places.Autocomplete(input);
+        var input = document.getElementById('pac-input');
+		map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+		var searchBox = new google.maps.places.SearchBox(input);
 		
-		google.maps.event.addListener(autocomplete, 'places_changed', function() {
+		google.maps.event.addListener(searchBox, 'places_changed', function() {
 		
 			var places = searchBox.getPlaces();
 			if (places.length == 0) {
@@ -72,7 +112,7 @@ function getPlaces(location) {
 	}
 	markersArray = [];
 	
-	var radius = parseInt($("#radiusSelect").val());
+	var radius = 10; //parseInt($("#radiusSelect").val());
 	
 	poller.fetch(location.k, location.D, radius, function(data){
 	

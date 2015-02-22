@@ -1,7 +1,7 @@
 var poller;
 
 poller = (function( $ ) {
-	var maxItems = 50;
+	var maxItems = 20;
 	
 	var fetch = function( lat, lng, rad, callback ) {
 		var paramObj = {

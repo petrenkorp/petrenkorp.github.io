@@ -25,15 +25,17 @@
 		<script src="res/map.js"></script>
 		<script src="res/dom.js"></script>
 		<script src="res/poller.js"></script>
+		<script src="res/toxlookup.js"></script>
 		<!--script src="res/toxjs.js"></script-->
 </head>
 <body>
 	<div class="container-fluid">
 		  <div class="main-logo">
+		  	<button id="dataButton" class="btn btn-default"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span><span id="dataWindowToggleGlyph" class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
             <h1>Pollute Watch</h1>
         </div>
 
-        <div class="row search_bar">
+        <!--div class="row search_bar">
 				<div class="col-xs-2 visible-xs"><button id="dataButton" class="btn btn-default"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span><span id="dataWindowToggleGlyph" class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button></div>
 				<div class="col-xs-2 col-sm-1"><button id="myLocation" class="btn btn-default"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></button></div>
 				<div class="col-xs-3 col-sm-3">
@@ -47,7 +49,7 @@
 					</select>
 				</div>
 				<div class="col-xs-5 col-sm-8"><input id="searchBox" class="form-control" type="text" placeholder="Search by location"></div>
-        </div>
+        </div-->
 
 	
 			<div id="dataWindow">
@@ -60,6 +62,8 @@
 			
 			<div id="mapWindow">
 				<div id="googleMap">Attempting to load Google Map</div>
+				<input id="pac-input" class="controls" type="text" placeholder="Enter a Location">
+				<!--button id="myLocation" class="btn btn-default"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></button-->
 			</div><!--/mapView-->
 	
 		
