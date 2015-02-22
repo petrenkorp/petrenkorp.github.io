@@ -25,14 +25,15 @@
 		<script src="res/toxjs.js"></script>
 </head>
 <body>
-	<div id="container">
-        <div class="main-logo">
+	<div class="container-fluid">
+		  <div class="main-logo">
             <h1>AbsPollutely</h1>
         </div>
 
         <div class="row search_bar">
-            <div class="col-xs-6 col-sm-6"><input id="searchBox" class="form-control" type="text" placeholder="Type a location"></div>
-				<div class="col-xs-2 col-sm-3 form-group">
+				<div class="col-xs-2 visible-xs"><button id="dataButton" class="btn btn-default"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span><span id="dataWindowToggleGlyph" class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button></div>
+				<div class="col-xs-2 col-sm-1"><button id="myLocation" class="btn btn-default"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></button></div>
+				<div class="col-xs-3 col-sm-3">
 					<select id="radiusSelect" class="form-control" name="radiusSelect">
 						<option value="2">2 KM radius</option>
 						<option value="5">5 KM radius</option>
@@ -42,8 +43,7 @@
 						<option value="100">100 KM radius</option>
 					</select>
 				</div>
-            <div class="col-xs-2 col-sm-3"><button id="myLocation" class="btn btn-default"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></button></div>
-				<div class="col-xs-2"><button id="dataButton" class="btn btn-default"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span><span id="dataWindowToggleGlyph" class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button></div>
+				<div class="col-xs-5 col-sm-8"><input id="searchBox" class="form-control" type="text" placeholder="Search by location"></div>
         </div>
 
 		<div id="dataWindow">
