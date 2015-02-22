@@ -27,6 +27,19 @@ $(document).ready(function() {
 		fadeScrollbars: true,
 		scrollbars: true
 	});
+
+	$(function() {      
+      $("#dataWindow").swipe( {
+        //Generic swipe handler for all directions
+        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+          	if (window.matchMedia('(max-width: 767px)')) {
+				if (direction === 'left' && $("#dataWindow").css("left") == "0px") {
+					toggleDataWindow();
+				}
+		  	}
+        }
+      });
+    });
 	
 	
 });
