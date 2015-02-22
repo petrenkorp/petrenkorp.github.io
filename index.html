@@ -17,8 +17,9 @@
     <link href='http://fonts.googleapis.com/css?family=Chango' rel='stylesheet' type='text/css'>
 
     <!--JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
     <script src="res/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
     <script src="res/iscroll.js"></script>
     <script src="res/jquery.touchswipe.js"></script>
@@ -32,14 +33,21 @@
 <div class="container-fluid">
 
     <div class="main-logo">
-        <button id="dataButton" class="btn btn-default">
-            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-            <span id="dataWindowToggleGlyph" class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-        </button>
-        <h1>Pollute Watch</h1>
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-        </button>
+        <span>
+            <button id="dataButton" class="btn btn-default">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                <span id="dataWindowToggleGlyph" class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+            </button>
+        </span>
+
+        <span><h1>Pollute Watch</h1></span>
+
+        <span>
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+            </button>
+        </span>
+
     </div>
 
     <!--div class="row search_bar">
@@ -81,8 +89,8 @@
     <!--/mapView-->
 
     <div id="myModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <div class="modal-dialog ">
+            <div class="windowTheme">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>

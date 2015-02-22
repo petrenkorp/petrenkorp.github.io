@@ -5,6 +5,8 @@ $(document).ready(function() {
 	$("#dataButton").click(function(){
 		toggleDataWindow();
 	});
+
+    $('#myModal').modal('show');
 	
 	
 	/*$("#myLocation").click(function(){
