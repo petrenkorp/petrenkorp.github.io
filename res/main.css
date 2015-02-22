@@ -51,6 +51,10 @@ a:hover {
 	-webkit-transition: left 500ms;
 }
 
+#dataWindowTitle {
+	
+}
+
 #dataList {
 	width: 80%;
 	height: 85%;
@@ -92,6 +96,14 @@ a:hover {
 }
 
 
+
+
+#backButton {
+	position: absolute;
+	top: 1%;
+	right: 1%;
+	display: inline-block;
+}
 
 
 

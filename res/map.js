@@ -91,7 +91,7 @@ function getPlaces(location) {
 				google.maps.event.addListener(marker, 'click', function(){
 					console.log(_pollutionData);
 					displayMarkerData(_pollutionData);
-					displayDataWindow();
+					toggleDataWindow();
 				});
 			})(marker.pollutionData);
 
