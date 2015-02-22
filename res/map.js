@@ -35,7 +35,7 @@ var markersArray;
 				return;
 			}
 			var latLong = new google.maps.LatLng(places[0].geometry.location.k, places[0].geometry.location.D);
-			getPlaces(latLong, 10);
+			getPlaces(latLong);
 			map.panTo(latLong);
 			map.setZoom(12);
 			
@@ -44,7 +44,7 @@ var markersArray;
 		
 		
 		google.maps.event.addListener(map, 'click', function(event) {
-			getPlaces(event.latLng, 10);
+			getPlaces(event.latLng);
 			//displayNearestPolluters();
 		});
 		
@@ -64,7 +64,7 @@ var markersArray;
 	
 })();
 
-function getPlaces(location, radius, display) {
+function getPlaces(location) {
 
 	placesArray = [];
 	if (markersArray.length > 0) {
@@ -72,15 +72,16 @@ function getPlaces(location, radius, display) {
 			markersArray[x].setMap(null);
 		}
 	}
-	markersArray.length = 0;
+	markersArray = [];
 	
+	var radius = parseInt($("#radiusSelect").val());
 	
 	poller.fetch(location.k, location.D, radius, function(data){
 	
 		placesArray = data;
 
-		for (var x = 0, len = placesArray.length; x < len; x++) {
-		
+		//for (var x = 0, len = placesArray.length; x < len; x++) {
+		for (var x in placesArray) {
 			var ll = new google.maps.LatLng(placesArray[x].Latitude, placesArray[x].Longitude);
 			var marker = new google.maps.Marker({
 				position: ll,

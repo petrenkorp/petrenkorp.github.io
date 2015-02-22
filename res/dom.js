@@ -16,7 +16,7 @@ function getMyLocation() {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position){
 			var loc = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-			getPlaces(loc, 10);
+			getPlaces(loc);
 			map.panTo(loc);
 			map.setZoom(12);
 		}, function(error){
@@ -107,7 +107,7 @@ function displayMarkerData(pollutionData){
 	}
 	
 	$("#dataList").append("<button><-- BACK</button>");
-	$("#dataList").children("button").click(function(){
+	$("#dataList").children("button class='btn btn-default'").click(function(){
 		$("#dataList").html(prevPage);
 	});
 	

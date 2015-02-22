@@ -9,7 +9,16 @@
        $arr[key($arr)]['Pollutants'][] = $sub; 
     } 
 
+    // comparator to sort pollutants list by total volume
+    function compare($a, $b) {
+        return $b['Total'] - $a['Total'];
+    }
+
     // declare vars
+    /*$db_host = "localhost";
+    $db_name = "code";
+    $db_user = "root";
+    $db_pass = "";*/
     $db_host = "localhost";
     $db_name = "manyscie_code";
     $db_user = "manyscie_codeusr";
@@ -18,13 +27,13 @@
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
     $data = array();
+    $i = -1;
 
     /*$lat = 43.6502840;
     $lon = -79.3843010;
     $rad = 10;
     $max = 50;*/
 
-    
     $lat = $_GET['lat']; // latitude of centre of bounding circle in degrees
     $lon = $_GET['lng']; // longitude of centre of bounding circle in degrees
     $rad = $_GET['rad']; // radius of bounding circle in kilometers
@@ -80,7 +89,7 @@
                   And Longitude Between :minLon And :maxLon
             ) As FirstCut
             Where acos(sin(:lat)*sin(radians(Latitude)) + cos(:lat)*cos(radians(Latitude))*cos(radians(Longitude)-:lon)) * :R < :rad
-            Order by D";
+            Order by D ASC";
     $params = array(
         'lat'    => deg2rad($lat),
         'lon'    => deg2rad($lon),
@@ -101,7 +110,8 @@
         //echo "yo"; 
         //var_dump($item->Id);
         //var_dump($arr);
-        if (!array_key_exists($item->Id, $data)) {
+        //echo $i;
+        if ($i == -1 || $item->Id != $data[$i]['Id']) {
             //echo "hi";
             //var_dump($item->Company_Name);
             // create location listing
@@ -119,7 +129,8 @@
             $location['Pollutants'] = array();
 
             // append to results array
-            $data[$item->Id] = $location;
+            $data[] = $location;
+            $i++;
         }
 
         // create substance listing
@@ -138,7 +149,10 @@
         }
     }
 
-    //var_dump($data);
+    // order pollutants by quantity
+    foreach ($data as $key => $item) {
+        usort($data[$key]['Pollutants'], "compare");
+    }
 
     // filter out locations which have no measurable pollutants set
     foreach ($data as $key => $item) {
@@ -148,7 +162,11 @@
         } 
     }
 
-    //var_dump($data);
+    // only return maxItems number of items
+    if (count($data) > $max) {
+        $data = array_slice($data, 0, $max);
+    }
+
 
     // output JSON or JSONP callback
     if (array_key_exists('callback', $_GET)){
