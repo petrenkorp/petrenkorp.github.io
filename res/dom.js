@@ -94,13 +94,18 @@ function displayMarkerData(pollutionData){
 	var title = $("#dataWindowTitle");
 	
 	title.append("<h3>" + pollutionData.Facility_Name + "</h3>")
-		.append("<h5>" + pollutionData.Company_Name + "</h5>");
+		.append("<h5>" + pollutionData.Company_Name + " <span>see all &#8629;</span></h5>");
 	
-	title.find("h3").click(function(){
+	/*title.find("h3").click(function(){
 		map.panTo(new google.maps.LatLng(pollutionData.Latitude, pollutionData.Longitude));
 		map.setZoom(12);
 		toggleDataWindow();
-	});
+	});*/
+
+
+	$("#dataWindow").on('click', '#dataWindowTitle span',function(){
+		displayNearestPolluters();
+	})
 	
 	$("#dataWindowTitle").html(title.html());
 	
@@ -135,6 +140,12 @@ function displayMarkerData(pollutionData){
 		}
 		
 		$("#dataList").append(dataListItem);
+
+		//update active marker
+		$.each(placesArray, function(key, val) {
+			val.marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+		});
+		pollutionData.marker.setIcon('https://maps.gstatic.com/mapfiles/ms2/micons/blue-pushpin.png');
 		
 	}
 
@@ -158,7 +169,7 @@ function displayMarkerData(pollutionData){
 
 function displayNearestPolluters() {
 	
-	$("#dataWindowTitle").html("<h3>Nearest Polluters</h3>");
+	$("#dataWindowTitle").html("<h3>Nearby Polluters</h3>");
 	
 	//var dataList = $("#dataList");
 	$("#dataList").html("");
@@ -170,11 +181,14 @@ function displayNearestPolluters() {
 		
 		var dataListItem = $("<div class='dataListItem'></div>");
 		dataListItem.append("<div class='dataListItemName'>" + placesArray[x].Company_Name + ": " + placesArray[x].Facility_Name + " <i>(" + parseFloat(placesArray[x].Distance, 10).toFixed(2) + "km)</i> </div>");
-		dataListItem.click(function(){
-			displayMarkerData(placesArray[x]);
-			map.panTo(new google.maps.LatLng(placesArray[x].Latitude, placesArray[x].Longitude));
-			map.setZoom(12);
-		});
+
+		(function(_place) {
+			dataListItem.click(function(){
+				displayMarkerData(_place);
+				map.panTo(new google.maps.LatLng(_place.Latitude, _place.Longitude));
+				map.setZoom(12);
+			});
+		})(placesArray[x]);
 		
 		$("#dataList").append(dataListItem);
 		

@@ -81,15 +81,18 @@ function getPlaces(location) {
 		for (var x in placesArray) {
 			var ll = new google.maps.LatLng(placesArray[x].Latitude, placesArray[x].Longitude);
 			var marker = new google.maps.Marker({
+				icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
 				position: ll,
 				map: map
 			});
 		
+			placesArray[x]['marker'] = marker;
 			marker.pollutionData = placesArray[x];
+			
 
 			(function(_pollutionData) {
 				google.maps.event.addListener(marker, 'click', function(){
-					console.log(_pollutionData);
+					//console.log(_pollutionData);
 					displayMarkerData(_pollutionData);
 					toggleDataWindow();
 				});

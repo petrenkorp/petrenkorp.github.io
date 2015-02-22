@@ -69,12 +69,25 @@ a:hover {
 }
 
 #dataWindowTitle {
+	padding-left: 5px;
+	padding-right: 5px;
 	text-align: center;
 }
 
+#dataWindowTitle h5, #dataWindowTitle .h5 {
+	margin-bottom: 0 !important;
+}
+
+#dataWindowTitle span {
+	font-size: 15px;
+	text-decoration: underline;
+	color: #CBCBD7;
+	cursor: pointer;
+}
+
 #dataListWrapper {
-	height: 82%;
-	max-height: 82%;
+	height: 88%;
+	max-height: 88%;
 	overflow: hidden;
 }
 
@@ -112,6 +125,7 @@ a:hover {
 	border: 3px solid rgb(133, 133, 144);
 	padding: 5px;
 	position: relative;
+	cursor: pointer;
 }
 
 .dataListItemName {
@@ -200,6 +214,14 @@ a:hover {
 
 
 @media (min-width: 768px) {
+	.container-fluid {
+		background: rgba(0, 0, 0, 0.8);
+	}
+
+	.main-logo {
+		background: rgba(0, 0, 0, 0);
+	}
+
 	.h1, h1 {
 		font-size: 36px;
 	}
@@ -209,6 +231,7 @@ a:hover {
 		width: 35%;
 		position: static;
 		display: inline-block;
+		background: rgba(0, 0, 0, 0);
 		float: left;
 		z-index: auto;
 	}
