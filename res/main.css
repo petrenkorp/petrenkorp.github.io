@@ -15,9 +15,12 @@ a:hover {
 	height: 100%;
 	position: relative;
 	background: rgba(0, 0, 0, 0.5);
+	padding-right: 0 !important;
+	padding-left: 0 !important;
 }
 
 .h1, h1 {
+	font-size: 26px !important;
     margin-top:0 !important;
 }
 
@@ -25,13 +28,19 @@ a:hover {
 
 .main-logo
 {
-	 height: 7.5%;
+	height: 55px;
     font-family: 'Chango', cursive;
     background: rgba(0, 0, 0, 0.5);
     color: #ffffff;
     text-align: center;
+    padding-top: 9px;
     padding-bottom: 9px;
     border-bottom: 1px solid #EEE;
+}
+
+.form-control {
+	padding-left: 10px !important;
+	padding-right: 10px !important;
 }
 
 .search_bar{
@@ -60,17 +69,25 @@ a:hover {
 }
 
 #dataWindowTitle {
-	
+	text-align: center;
+}
+
+#dataListWrapper {
+	height: 82%;
+	max-height: 82%;
+	overflow: hidden;
 }
 
 #dataList {
 	width: 80%;
-	height: 85%;
-	background: rgba(255, 255, 255, 0.5);
+	/*height: 82%;*/
+	/*max-height: 82%;*/
+	/*background: rgba(255, 255, 255, 0.5);*/
 	margin: 5px auto;
 	border-radius: 5px;
 	position: relative;
-	padding: 5px: 
+	padding: 5px;
+	overflow: hidden;
 }
 
 #dataListHeader {
@@ -90,8 +107,10 @@ a:hover {
 .dataListItem {
 	width: 90%;
 	background: rgba(0, 0, 0, 0.5);
-	border-radius: 5px;
-	margin: 4px auto 0px auto;
+	border-radius: 10px;
+	margin: 4px auto 10px auto;
+	border: 3px solid rgb(133, 133, 144);
+	padding: 5px;
 	position: relative;
 }
 
@@ -181,6 +200,10 @@ a:hover {
 
 
 @media (min-width: 768px) {
+	.h1, h1 {
+		font-size: 36px;
+	}
+
 	#dataWindow {
 		left: 0%;
 		width: 35%;

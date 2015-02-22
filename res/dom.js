@@ -1,3 +1,5 @@
+var myScroll;
+
 $(document).ready(function() {
 
 	$("#dataButton").click(function(){
@@ -16,9 +18,26 @@ $(document).ready(function() {
 			$("#dataWindowToggleGlyph").addClass("glyphicon-triangle-right").removeClass("glyphicon-triangle-left");
 		}
 	});
+
+
+	//setup iScroll 
+	myScroll = new IScroll( '#dataListWrapper', {
+		//disableMouse: true,
+		eventPassthrough: 'horizontal',
+		fadeScrollbars: true,
+		scrollbars: true
+	});
 	
 	
 });
+
+// reset iScroll
+function resetIScroll() {
+	myScroll.scrollTo( 0, 0, 0);
+	setTimeout(function () {
+		myScroll.refresh();
+	}, 0);
+}
 
 function getMyLocation() {
 	if (navigator.geolocation) {
@@ -79,18 +98,18 @@ function displayMarkerData(pollutionData){
 		var dataListItem = $("<div class='dataListItem'></div>");
 		var listCount = [];
 		
-		dataListItem.append("<div class='dataListItemName'>" + pollutionData.Pollutants[x].Substance_Name_En + " (" + pollutionData.Pollutants[x].Units + ")</div>");
+		dataListItem.append("<div class='dataListItemName'>" + pollutionData.Pollutants[x].Substance_Name_En + "</div>");
 		
 		if (pollutionData.Pollutants[x].Air_Emissions_Tot != "") {
-			dataListItem.append("<div class='dataListItemAmount'>Air Emissions: " + pollutionData.Pollutants[x].Air_Emissions_Tot + "</div>");
+			dataListItem.append("<div class='dataListItemAmount'>Air Emissions: " + pollutionData.Pollutants[x].Air_Emissions_Tot + ' ' + pollutionData.Pollutants[x].Units + "</div>");
 			listCount.push(pollutionData.Pollutants[x].Air_Emissions_Tot);
 		}
 		if (pollutionData.Pollutants[x].Water_Releases_Tot != "") {
-			dataListItem.append("<div class='dataListItemAmount'>Water Releases: " + pollutionData.Pollutants[x].Water_Releases_Tot + "</div>");
+			dataListItem.append("<div class='dataListItemAmount'>Water Releases: " + pollutionData.Pollutants[x].Water_Releases_Tot + ' ' + pollutionData.Pollutants[x].Units + "</div>");
 			listCount.push(pollutionData.Pollutants[x].Water_Releases_Tot);
 		}
 		if (pollutionData.Pollutants[x].Land_Releases_Tot != "") {
-			dataListItem.append("<div class='dataListItemAmount'>Land Releases: " + pollutionData.Pollutants[x].Land_Releases_Tot + "</div>");
+			dataListItem.append("<div class='dataListItemAmount'>Land Releases: " + pollutionData.Pollutants[x].Land_Releases_Tot + ' ' + pollutionData.Pollutants[x].Units + "</div>");
 			listCount.push(pollutionData.Pollutants[x].Water_Releases_Tot);
 		}
 		
@@ -99,11 +118,14 @@ function displayMarkerData(pollutionData){
 			for (var y = 0, leny = listCount.length; y < leny; y++) {
 				total += listCount[y];
 			}
-			dataListItem.append("<div class='dataListItemAmount dataListItemAmountTotal'>TOTAL: " + total + "</div>");
+			//dataListItem.append("<div class='dataListItemAmount dataListItemAmountTotal'>TOTAL: " + total + "</div>");
 		}
 		
 		$("#dataList").append(dataListItem);
+		
 	}
+
+
 	
 	/*
 	$("#dataWindow").prepend("<button class='backButton btn btn-default'><span id='dataWindowToggleGlyph' class='glyphicon glyphicon-triangle-left' aria-hidden='true'></span></button>");
@@ -112,6 +134,7 @@ function displayMarkerData(pollutionData){
 	});
 	*/
 	
+	resetIScroll();
 	
 }
 
@@ -122,7 +145,7 @@ function displayMarkerData(pollutionData){
 
 function displayNearestPolluters() {
 	
-	$("#dataWindowTitle").html("<h3>Five Nearest Polluters</h3>");
+	$("#dataWindowTitle").html("<h3>Nearest Polluters</h3>");
 	
 	//var dataList = $("#dataList");
 	$("#dataList").html("");
@@ -130,10 +153,10 @@ function displayNearestPolluters() {
 	var count = 0;
 	for (var x in placesArray) {
 		count++;
-		if (count == 5) {return;}
+		//if (count == 5) {return;}
 		
 		var dataListItem = $("<div class='dataListItem'></div>");
-		dataListItem.append("<div class='dataListItemName'>" + placesArray[x].Company_Name + ": " + placesArray[x].Facility_Name + "</div>");
+		dataListItem.append("<div class='dataListItemName'>" + placesArray[x].Company_Name + ": " + placesArray[x].Facility_Name + " <i>(" + parseFloat(placesArray[x].Distance, 10).toFixed(2) + "km)</i> </div>");
 		dataListItem.click(function(){
 			displayMarkerData(placesArray[x]);
 			map.panTo(new google.maps.LatLng(placesArray[x].Latitude, placesArray[x].Longitude));
@@ -141,13 +164,15 @@ function displayNearestPolluters() {
 		});
 		
 		$("#dataList").append(dataListItem);
+		
 	}
 	
-	
+	resetIScroll();
 	
 }
 	
 	
 	
-	
+
+
 	
