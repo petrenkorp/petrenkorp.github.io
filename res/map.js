@@ -21,88 +21,42 @@ var placesArray;
 		
 		
 		
-		var input = /** @type {HTMLInputElement} */(document.getElementById('pac-input'));
+		var input = document.getElementById('pac-input');
 		map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-		var searchBox = new google.maps.places.SearchBox(/** @type {HTMLInputElement} */(input));
+		var searchBox = new google.maps.places.SearchBox(input);
+		
+		
 		
 		google.maps.event.addListener(searchBox, 'places_changed', function() {
 		
 			var places = searchBox.getPlaces();
-			console.log(places);
+			//console.log(places);
 			if (places.length == 0) {
 				return;
 			}
-			map.panTo(new google.maps.LatLng(places[0].geometry.location.k, places[0].geometry.location.D));
+			var latLong = new google.maps.LatLng(places[0].geometry.location.k, places[0].geometry.location.D);
+			map.panTo(latLong);
 			map.setZoom(10);
 			
+			//displayNearestPolluters(latLong, 10);
 			
 		});
 		
 		
-		function getPlaces() {
-		
-			//placeholder data
-			placesArray = [];
-			for (var x = 0; x < 10; x++) {
-				placesArray.push(
-					{
-						Id : "0000" + x,
-						Company_Name : "Acme Inc.",
-						Facility_Name : "Garbage Factory",
-						City : "Moose Lick",
-						Province : "XX",
-						Latitude : 62 - x,
-						Longitude : -96 - x,
-						Substances : [
-							{
-								Substance_Name_En : "Noxious Ooze",
-								Units : "kg",
-								Air_Emissions_Tot : 4244 + x,
-								Water_Releases_Tot : 55 + x,
-								Land_Releases_Tot : 2 + x
-							},
-							{
-								Substance_Name_En : "Viscous Goo",
-								Units : "tonnes",
-								Air_Emissions_Tot : 52 + x,
-								Water_Releases_Tot : 662 + x,
-								Land_Releases_Tot : 99 + x
-							}
-						],
-					});
-			}
-			
-		}
 		
 		
 		
 		
 		
-	google.maps.event.addListenerOnce(map, 'idle', function(){
+		
+		
+		
+		
+		
+		google.maps.event.addListenerOnce(map, 'idle', function(){
+			getMyLocation();
+		});
 	
-		var markersArray = [];
-	
-		getPlaces();
-		
-		for (var x = 0, len = placesArray.length; x < len; x++) {
-			var ll = new google.maps.LatLng(placesArray[x].Latitude, placesArray[x].Longitude);
-			var marker = new google.maps.Marker({
-				position: ll,
-				map: map
-			});
-			
-			marker.pollutionData = placesArray[x];
-			google.maps.event.addListener(marker, 'click', function(){
-				displayMarkerData(marker.pollutionData);
-				displayDataWindow();
-			});
-
-			markersArray.push(marker);
-		}	
-	});
-
-		
-		
 	}
 
 	
@@ -112,3 +66,31 @@ var placesArray;
 	
 	
 })();
+
+function getPlaces(location, radius) {
+		
+	placesArray = [];
+	var markersArray = [];
+	
+	poller.fetch(location.k, location.D, radius, function(data){
+		placesArray = data;
+
+		for (var place in placesArray) {
+			var ll = new google.maps.LatLng(placesArray[place].Latitude, placesArray[place].Longitude);
+			var marker = new google.maps.Marker({
+				position: ll,
+				map: map
+			});
+			
+			marker.pollutionData = placesArray[place];
+			google.maps.event.addListener(marker, 'click', function(){
+				displayMarkerData(marker.pollutionData);
+				displayDataWindow();
+			});
+
+			markersArray.push(marker);
+		}
+		
+	});
+	
+}

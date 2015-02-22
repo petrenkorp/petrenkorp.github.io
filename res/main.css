@@ -6,6 +6,10 @@ body {
 	height: 100%;
 }
 
+a:hover {
+	cursor: pointer;
+}
+
 #container {
 	height: 100%;
 	position: relative;
@@ -105,6 +109,10 @@ body {
 	border-radius: 4px;
 }
 
+#dataButton :hover {
+	cursor: pointer;
+}
+
 #myLocation {
 	height: 30px;
 	width: 30px;
@@ -114,6 +122,10 @@ body {
 	left: 1%;
 	top: 4em;
 	border-radius: 4px;
+}
+
+#myLocation :hover {
+	cursor: pointer;
 }
 
 
