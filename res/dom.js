@@ -57,7 +57,7 @@ function getMyLocation() {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position){
 			var loc = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-			getPlaces(loc);
+			getPlaces(loc, true);
 			map.panTo(loc);
 			map.setZoom(12);
 			displayNearestPolluters();
