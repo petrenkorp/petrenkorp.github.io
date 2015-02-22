@@ -21,39 +21,37 @@ var markersArray;
 			}
 			
 		});
+
+
+
+
+        var input = document.getElementById('searchBox');
+        var autocomplete = new google.maps.places.Autocomplete(input);
 		
-		
-		
-		
-		var input = document.getElementById('pac-input');
-		map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-		var searchBox = new google.maps.places.SearchBox(input);
-		
-		
-		
-		google.maps.event.addListener(searchBox, 'places_changed', function() {
+		google.maps.event.addListener(autocomplete, 'places_changed', function() {
 		
 			var places = searchBox.getPlaces();
 			if (places.length == 0) {
 				return;
 			}
 			var latLong = new google.maps.LatLng(places[0].geometry.location.k, places[0].geometry.location.D);
-			getPlaces(latLong, 10);
+			getPlaces(latLong);
 			map.panTo(latLong);
-			map.setZoom(10);
+			map.setZoom(12);
 			
-			//displayNearestPolluters(latLong, 10);
 			
 		});
 		
 		
 		google.maps.event.addListener(map, 'click', function(event) {
-			getPlaces(event.latLng, 10);
+			getPlaces(event.latLng);
+			//displayNearestPolluters();
 		});
 		
 		
 		google.maps.event.addListenerOnce(map, 'idle', function(){
 			getMyLocation();
+			//displayNearestPolluters();
 		});
 	
 	}
@@ -66,8 +64,8 @@ var markersArray;
 	
 })();
 
-function getPlaces(location, radius) {
-		
+function getPlaces(location) {
+
 	placesArray = [];
 	if (markersArray.length > 0) {
 		for (var x = 0, len = markersArray.length; x < len; x++) {
@@ -76,25 +74,34 @@ function getPlaces(location, radius) {
 	}
 	markersArray = [];
 	
+	var radius = parseInt($("#radiusSelect").val());
+	
 	poller.fetch(location.k, location.D, radius, function(data){
+	
 		placesArray = data;
 
-		for (var place in placesArray) {
-			var ll = new google.maps.LatLng(placesArray[place].Latitude, placesArray[place].Longitude);
+		//for (var x = 0, len = placesArray.length; x < len; x++) {
+		for (var x in placesArray) {
+			var ll = new google.maps.LatLng(placesArray[x].Latitude, placesArray[x].Longitude);
 			var marker = new google.maps.Marker({
 				position: ll,
 				map: map
 			});
-			
-			marker.pollutionData = placesArray[place];
-			google.maps.event.addListener(marker, 'click', function(){
-				displayMarkerData(marker.pollutionData);
-				displayDataWindow();
-			});
+		
+			marker.pollutionData = placesArray[x];
+
+			(function(_pollutionData) {
+				google.maps.event.addListener(marker, 'click', function(){
+					console.log(_pollutionData);
+					displayMarkerData(_pollutionData);
+					displayDataWindow();
+				});
+			})(marker.pollutionData);
 
 			markersArray.push(marker);
 		}
 		
+		displayNearestPolluters();
 	});
 	
 }
