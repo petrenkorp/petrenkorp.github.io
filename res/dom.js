@@ -6,7 +6,6 @@ $(document).ready(function() {
 		toggleDataWindow();
 	});
 
-    $('#myModal').modal('show');
 	
 	
 	/*$("#myLocation").click(function(){
