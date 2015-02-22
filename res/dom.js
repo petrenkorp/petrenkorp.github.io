@@ -143,10 +143,10 @@ function displayMarkerData(pollutionData){
 
 		//toxicity lookup functionality
 		var cas = pollutionData.Pollutants[x].CAS_Number;
-		var url = toxLookup.cas;
-		//if ( url ) {
+		var url = toxLookup[cas];
+		if ( url ) {
 			dataListItem.append("<div class='dataListLearnMore'>Learn More</div><a href='" + url + "' target='_blank'><span></span></a>");
-		//}
+		}
 		
 		$("#dataList").append(dataListItem);
 
