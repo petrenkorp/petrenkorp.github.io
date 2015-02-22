@@ -1,9 +1,13 @@
 var map;
 var placesArray;
+var markersArray;
 
 (function() {
 
 	function initializeMap() {
+	
+		markersArray = [];
+	
 		var nowhere = new google.maps.LatLng(62.40, -96.75);
 		map = new google.maps.Map(document.getElementById("googleMap"), {
 			center: nowhere,
@@ -30,11 +34,11 @@ var placesArray;
 		google.maps.event.addListener(searchBox, 'places_changed', function() {
 		
 			var places = searchBox.getPlaces();
-			//console.log(places);
 			if (places.length == 0) {
 				return;
 			}
 			var latLong = new google.maps.LatLng(places[0].geometry.location.k, places[0].geometry.location.D);
+			getPlaces(latLong, 10);
 			map.panTo(latLong);
 			map.setZoom(10);
 			
@@ -43,14 +47,9 @@ var placesArray;
 		});
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		google.maps.event.addListener(map, 'click', function(event) {
+			getPlaces(event.latLng, 10);
+		});
 		
 		
 		google.maps.event.addListenerOnce(map, 'idle', function(){
@@ -70,7 +69,12 @@ var placesArray;
 function getPlaces(location, radius) {
 		
 	placesArray = [];
-	var markersArray = [];
+	if (markersArray.length > 0) {
+		for (var x = 0, len = markersArray.length; x < len; x++) {
+			markersArray[x].setMap(null);
+		}
+	}
+	markersArray = [];
 	
 	poller.fetch(location.k, location.D, radius, function(data){
 		placesArray = data;
