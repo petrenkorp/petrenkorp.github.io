@@ -45,13 +45,11 @@ var markersArray;
 		
 		google.maps.event.addListener(map, 'click', function(event) {
 			getPlaces(event.latLng);
-			//displayNearestPolluters();
 		});
 		
 		
 		google.maps.event.addListenerOnce(map, 'idle', function(){
 			getMyLocation();
-			//displayNearestPolluters();
 		});
 	
 	}
@@ -80,7 +78,6 @@ function getPlaces(location) {
 	
 		placesArray = data;
 
-		//for (var x = 0, len = placesArray.length; x < len; x++) {
 		for (var x in placesArray) {
 			var ll = new google.maps.LatLng(placesArray[x].Latitude, placesArray[x].Longitude);
 			var marker = new google.maps.Marker({
@@ -94,7 +91,7 @@ function getPlaces(location) {
 				google.maps.event.addListener(marker, 'click', function(){
 					console.log(_pollutionData);
 					displayMarkerData(_pollutionData);
-					displayDataWindow();
+					toggleDataWindow();
 				});
 			})(marker.pollutionData);
 
