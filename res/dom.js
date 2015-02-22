@@ -5,11 +5,14 @@ $(document).ready(function() {
 	$("#dataButton").click(function(){
 		toggleDataWindow();
 	});
+
+    $('#myModal').modal('show');
 	
 	
 	/*$("#myLocation").click(function(){
 		getMyLocation();
 	});*/
+
 	
 	$("#dataWindow").on('transitionend webkitTransitionEnd oTransitionEnd', function () {
 		if ($("#dataWindow").css("left") == "0px") {	

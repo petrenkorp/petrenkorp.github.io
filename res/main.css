@@ -64,7 +64,7 @@ a:hover {
  *
  */
 
-#dataWindow {
+#dataWindow, .windowTheme{
 	height: calc(100% - 55px);
 	background: rgba(0, 0, 0, 0.8);
 	position: relative;
