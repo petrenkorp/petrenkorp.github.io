@@ -1,0 +1,314 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	background-color: #000000;
+	background-image: url("main.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: 100% 100%;
+	font-family: 'Playfair Display SC', serif;
+	color: #ffffff;
+}
+
+#imageCopyright {
+	font-size: 10px;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+header {
+	background-color: rgba(0, 0, 0, 0.75);
+	width: 100%;
+	margin: 0px auto;
+	padding: 40px 0px;
+	text-align: center
+}
+
+h1 {
+	color: #ffffff;
+	margin: 0px;
+	transition: text-shadow 1s;
+	-webkit-transition: text-shadow 1s;
+}
+
+h1:hover {
+	text-shadow: 0 0 60px #ffffff;
+	transition: text-shadow 1s;
+	-webkit-transition: text-shadow 1s;
+}
+
+
+
+nav {
+	background-color: rgba(0, 0, 0, 0.5);
+	margin: 0px auto;
+	padding: 20px 0px;
+	text-align: center;
+}
+
+nav h3 {
+	width: 20%;
+	margin: 0px;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	color: #ffffff;
+	transition: text-shadow 1s;
+	-webkit-transition: text-shadow 1s;
+	-webkit-animation: easeIn 1s;
+	animation: easeIn 1s;
+}
+
+nav h3:hover {
+	text-shadow: 0 0 60px #ffffff;
+	transition: text-shadow 1s;
+	-webkit-transition: text-shadow 1s;
+}
+
+a, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+
+
+#content{
+	width: 100%;
+	min-height: 600px;
+	margin: 0px auto;
+	padding: 20px 0px;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.25);
+	overflow: auto;
+}
+
+.contentText {
+	margin: 10px auto 0px auto;
+	padding: 10px;
+	text-align: center;
+	font-family: 'Cabin', sans-serif;
+}
+
+.dark {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.columnLeft {
+	width: 45%;
+	float: left;
+	margin: 10px 0px 10px 10px;
+	text-align: left;
+}
+
+.columnRight {
+	width: 45%;
+	float: right;
+	margin: 10px 10px 10px 0px;
+	text-align: left;
+}
+
+.subText {
+	background-color: rgba(255, 255, 255, 0.1);
+	padding-left: 20px;
+}
+
+.writing {
+	text-align: justify;
+	padding: 10px;
+	max-width: 800px;
+}
+
+.contentText h4 {
+	text-align: center;
+}
+
+
+
+.portfolioItem {
+	background-color: rgba(0, 0, 0, 0.5);
+	margin: 10px 0px 10px 0px;
+	padding: 10px 0px;
+}
+
+.portfolioItem a {
+	color: #ffffff;
+	text-decoration: underline;
+	transition: text-shadow 1s;
+	-webkit-transition: text-shadow 1s;
+}
+
+.portfolioItem a:hover {
+	text-shadow: 0 0 60px #ffffff;
+	transition: text-shadow 1s;
+	-webkit-transition: text-shadow 1s;
+}
+
+
+
+
+@-webkit-keyframes easeIn {
+	from {
+		color: rgba(255, 255, 255, 0);
+	}
+	to {
+		color: rgba(255, 255, 255, 1);
+	}
+}
+
+@keyframes easeIn {
+	from {
+		color: rgba(255, 255, 255, 0);
+	}
+	to {
+		color: rgba(255, 255, 255, 1);
+	}
+}
+
+
+
+
+
+@media (max-width: 640px) {
+	body {
+		background-color: #999999;
+		background-image: none;
+	}
+
+	header {
+		max-width: 100%;
+	}
+
+	nav {
+		max-width: 100%;
+	}
+
+	nav h3 {
+		display: block;
+		width: 100%;
+		margin: auto;
+	}
+
+	#imageCopyright {
+		display: none;
+	}
+	
+	.columnLeft {
+		float: none;
+		width: 90%;
+	}
+	
+	.columnRight {
+		float: none;
+		width: 90%;
+	}
+
+
+	.portfolioItem {
+		text-align: left;
+		padding-left: 25px;
+	}
+
+}
+
+
+/* SOCKPAIRER */
+
+#sockGame {
+	height: 600px;
+	width: 600px;
+	background: rgba(0, 0, 0, 0.15);
+	margin: 25px auto;
+	border-radius: 5px;
+	transition: background 2s;
+	-webkit-transition: background 2s;
+}
+
+.sockTile {
+	height: 98px;
+	width: 98px;
+	display: inline-block;
+}
+
+.sockRow {
+	height: 100px;
+	width: 600px;
+}
+
+svg{
+	height: 98px;
+	width: 98px
+}
+
+.svg{
+	height: 98px;
+	width: 98px
+}
+
+.replaced-svg {
+	height: 100px;
+	width: 100px
+}
+
+
+
+
+
+/* MAYOR'S QUEST */
+
+@font-face { 
+	font-family: 'mayorsFont'; 
+	src: url('mayorsQuestRes/PressStart2P.ttf') format('truetype'); 
+}
+.mayorsText {
+	font-family: mayorsFont, "Courier New";
+	font-size: 14px;
+	color: #ffffff;
+}
+#mayorsQuest {
+	width: 600px;
+	margin: 0px auto;
+}
+#levelDiv {
+	width: 38%;
+	display: inline-block;
+	padding-top: 2px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+#crackDiv {
+	width: 30%;
+	display: inline;
+	float: left;
+	text-align: left;
+	padding-top: 2px;
+	padding-left: 2px;
+}
+#soundButton {
+	width: 30%;
+	display: inline;
+	float: right;
+	text-align: right;
+	padding-top: 2px;
+	padding-right: 2px;
+}
+#newsTicker {
+	clear: both;
+	text-align: center;
+	margin: 0px auto;
+	border-style: dotted;
+	border-width: 2px;
+	min-height: 2em;
+	padding: 2px;
+	background: black;
+	color: white;
+	max-width: 600px;
+}
