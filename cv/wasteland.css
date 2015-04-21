@@ -211,7 +211,7 @@ a, a:visited, a:hover, a:active {
 	}
 
 
-	.portfolioItem {
+	.portfolioItem p {
 		text-align: left;
 		padding-left: 25px;
 	}
